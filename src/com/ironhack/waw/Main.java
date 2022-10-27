@@ -1,10 +1,13 @@
+package com.ironhack.waw;
+
+import com.ironhack.waw.gameServices.Game;
+
 public class Main {
     public static void main(String[] args) {
-
-
+        Game game = new Game();
         while (true) {
-            // respond = Ask for user if want to play
-            if (si el user quier jugar) {
+            String resp = game.askSomethingToUser("Do you want to play a game?");
+            if (resp.equals("yes")) {
                 // crear lista de characters 1;
                 // crear lista de characters 2;
 //
@@ -21,9 +24,7 @@ public class Main {
                 // }
 
 
-            }
-
-            else {
+            } else {
                 break;
             }
         }

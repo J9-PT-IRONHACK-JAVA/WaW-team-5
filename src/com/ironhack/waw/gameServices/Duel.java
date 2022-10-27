@@ -1,7 +1,9 @@
+package com.ironhack.waw.gameServices;
+
 public class Duel {
-    combatant1
-    combatant2
-    isTie
+    // combatant1
+    // combatant2
+    // isTie
 
     // metodo fight()
     //     mientras los dos estan vivos {
