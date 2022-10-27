@@ -1,4 +1,4 @@
-package com.ironhack.waw.gameObjects;
+package com.ironhack.wawgame.gameObjects;
 
 public class Character {
     private Integer id;

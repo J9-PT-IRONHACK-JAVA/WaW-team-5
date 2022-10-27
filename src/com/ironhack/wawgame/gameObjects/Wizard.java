@@ -1,4 +1,4 @@
-package com.ironhack.waw.gameObjects;
+package com.ironhack.wawgame.gameObjects;
 
 public class Wizard extends Character implements Attacker {
     // add Wizard related attributes

@@ -1,4 +1,4 @@
-package com.ironhack.waw.gameObjects;
+package com.ironhack.wawgame.gameObjects;
 
 public class Warrior extends Character implements Attacker {
     // add Warrior related attributes

@@ -1,4 +1,4 @@
-package com.ironhack.waw.gameServices;
+package com.ironhack.wawgame.gameServices;
 
 public class Duel {
     // combatant1

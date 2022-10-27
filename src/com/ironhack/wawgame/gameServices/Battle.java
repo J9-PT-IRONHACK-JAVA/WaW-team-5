@@ -1,6 +1,6 @@
-package com.ironhack.waw.gameServices;
+package com.ironhack.wawgame.gameServices;
 
-import com.ironhack.waw.gameObjects.Party;
+import com.ironhack.wawgame.gameObjects.Party;
 
 public class Battle {
     private Party party1;

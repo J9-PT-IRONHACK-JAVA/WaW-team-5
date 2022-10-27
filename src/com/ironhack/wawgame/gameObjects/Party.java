@@ -1,4 +1,4 @@
-package com.ironhack.waw.gameObjects;
+package com.ironhack.wawgame.gameObjects;
 
 import java.util.ArrayList;
 
