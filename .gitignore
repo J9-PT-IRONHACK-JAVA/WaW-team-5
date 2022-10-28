@@ -28,7 +28,6 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-./idea/
+**.iml
 
-Waw-team-5.iml
-
+/.idea/
