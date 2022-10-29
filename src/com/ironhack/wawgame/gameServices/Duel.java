@@ -1,76 +1,52 @@
-//Nuevo test GitHub pablo --> Develop
-
 package com.ironhack.wawgame.gameServices;
 
 import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
-import com.ironhack.wawgame.gameObjects.Warrior;
-import com.ironhack.wawgame.gameObjects.Wizard;
 
 public class Duel {
 
+//ATRIBUTES
     private Character combatant1;
     private Character combatant2;
-
-    //pruebas atributos
-    private Wizard  wizardCombatant1, wizardCombatant2;
-    private Warrior warriorCombatant1, warriorCombatant2;
-    boolean isTie = false;
-    private final int heavyHpLooseWarrior= -5; //Es lo que resta un Heavy Attack de un Warrior
-    private final int heavyHpLooseWizard = -3; //Es lo que resta un Heavy Attack de un Wizard
-    private final int weakHpLooseWarrior = -2; //Es lo que resta un Weak Attack de un Warrior
-    private final int weakHpLooseWizard  = -1; //Es lo que resta un Weak Attack de un Wizard
+    private boolean isTie = false;
 
 
-    //CONSTRUCTOR
-    public Duel(Character combatant1, Character combatant2, boolean isTie) {
-       //pruebas
-        if (combatant1 instanceof Wizard) { wizardCombatant1 = (Wizard) combatant1; }
-        else { warriorCombatant1 = (Warrior) combatant1;}
+//CONSTRUCTOR
 
-        if (combatant2 instanceof Wizard) { wizardCombatant2 = (Wizard) combatant2;}
-        else { warriorCombatant2 = (Warrior) combatant2; }
-
-        //codigo pablo
-        /* if (combatant1 instanceof Wizard) { this.combatant1 = (Wizard) combatant1;}
-            else { this.combatant1 = (Warrior) combatant1;
-        }
-        if (combatant2 instanceof Wizard) { this.combatant2 = (Wizard) combatant2;}
-            else { this.combatant2 = (Warrior) combatant2;
-        }
-        this.isTie = isTie;*/
+    public Duel(Character combatant1, Character combatant2) {
+        this.combatant1 = combatant1;
+        this.combatant2 = combatant2;
     }
 
 
-    //Deifinir de alguna forma si el tipo de combatant que es cada uno WARRIOR O WIZARD
+//METODOS
 
-    // metodo fight()
+    /*fight realiza todos los atacantes entre los combatans hasta que uno de los dos muere
+    *Como parametros se ponen instancias del interface Attack en lugar de tipo Character
+    * para evitar la necesidad de tener que identificar si el Character es Wizard o Warrior
+    * ya que Character es Abstract y no puede ser instanciada.
+    * @param attacker1
+    * @param attacker2
+    */
     public void fight (Attacker attacker1, Attacker attacker2) {
-             while (combatant1.getIsAlive() && combatant2.getIsAlive()) {
-                 attack (combatant1, combatant2);
-                 attack (combatant2, combatant1);
-
+             while (attacker1.getIsAlive() && attacker2.getIsAlive()) {
+                 attack (attacker1, attacker2);
                   if (combatant1.getHp() <=0 && combatant2.getHp() <=0) {
                       this.isTie = true;
-                      //si uno de los combatientes esta muerto cambiar el estoad de isAlive
                   }
              }
 
     }
-
-
-
-    // Luis: metodo empate mira si los dos combatientes estan muertos
-        // Pablo: ¿hace falta? Ya he creado el atributo isTie  que se cambia en el metodo fight cuando hay empate
-
 
     //getLooser devuelve en tipo Character del perdedor del duelo
     //@param combatant 1: combatiente 1 de la clase Duel
     //@param combatant 1: combatiente 2 de la clase Duel
     public Character getLooser (Character combatant1, Character combatant2) {
         if (combatant1.getHp() <=0) {
+            combatant1.setIsAlive (false);
             return combatant1;
         } else {
+            combatant2.setIsAlive (false);
             return combatant2;
         }
     }
@@ -86,36 +62,6 @@ public class Duel {
         }
     }
 
-    //setDamage resta el daño al atacante
-    //@param attacker, es el combatiente que realiza el ataque
-    //@param typeOfAttack, es el tipo de ataque que realizar 1 = Heavy Attack; 2 = Weak Attack
-    public void setDamage (Character attacker,int typeOfAttack) {
-        if (attacker instanceof Wizard) {
-            Wizard wizardAttacker = (Wizard) attacker;
-            wizardAttacker.updateMana(Wizard.getManaDamage(typeOfAttack), typeOfAttack);
-        }
-            else {
-               Warrior warriorAttacker = (Warrior) attacker;
-               warriorAttacker.updateStamina (Warrior.getStaminaDamage(typeOfAttack), typeOfAttack);
-        }
-    }
-
-    //setHpLoose resta el hp del Character que recibe el ataque (defender) en función del ataque que se realiza
-    //@param attacker: es el Character que realiza el ataque
-    //@param defender: es el Character que recibe el ataque
-    //@param typeOfAttack: tipo de ataque que recibe el defender. 1 = Heavy Attack; 2 = Weak Attack
-    public void setHpLoose (Character attacker, Character defender, int typeOfAttack) {
-        switch (typeOfAttack) {
-            case 1: //Heavy Attack
-                if (attacker instanceof Wizard) { defender.looseHp (heavyHpLooseWizard);}
-                else {defender.looseHp (heavyHpLooseWarrior);}
-                break;
-            case 2: //Weak Attack
-                if (attacker instanceof Wizard) { defender.looseHp (weakHpLooseWizard);}
-                else {defender.looseHp (weakHpLooseWarrior);}
-                break;
-        }
-    }
     //attack determina el tipo de ataque que realiza el atacante (attacker) y en función de ello,
     //resta el damage (setDamage) al attacker y resta hp al defender
     //@param attacker: es el Character que realiza el ataque
@@ -129,24 +75,4 @@ public class Duel {
         attacker1.receiveAttack();
     }
 
-
-
-        //pablo code
-        /*
-        if (attacker instanceof Wizard) {
-            Wizard attackerWizard = (Wizard) attacker;
-        }
-        else { Warrior attackerWarrior = (Warrior) attacker;}
-
-        if (attackerWizard.canHeavyAttack() || attackerWarrior.canHeavyAttack() ) {
-            setDamage(attacker,1);
-            setHpLoose(attacker, defender,1);
-        }
-        else {
-            setHpLoose(defender,attacker,2);
-        }
-    }*/
-
-    //imprimir los atributos despues de cada ataque
-    //dar opción de elegir el tipo de ataque despues de cada ataque
 }
