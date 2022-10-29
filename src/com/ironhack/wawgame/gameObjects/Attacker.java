@@ -12,4 +12,12 @@ public interface Attacker {
     //        devolver inteligencia del wizzard
     //     si no devolver 2
     // }
+
+    public void doAttack();
+        //Restar stamina o mana
+
+    public void receiveAttack ();
+        //restar vida
+
+
 }

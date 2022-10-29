@@ -1,5 +1,6 @@
 package com.ironhack.wawgame.gameServices;
 
+import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
 import com.ironhack.wawgame.gameObjects.Warrior;
 import com.ironhack.wawgame.gameObjects.Wizard;
@@ -117,22 +118,32 @@ public class Duel {
     //resta el damage (setDamage) al attacker y resta hp al defender
     //@param attacker: es el Character que realiza el ataque
     //@param defender: es el Character que recibe el ataque
-    public void attack (Character attacker, int typeOfAttack, Character defender) {
-        Wizard attackerWizard;
-        Warrior attackerWarrior;
-        if (attacker instanceof Wizard) {
-            attackerWizard = (Wizard) attacker;
-        }
-        else { attackerWarrior = (Warrior) attacker;}
+    //@param typeOfAttack: tipo de ataque que realiza attacker: 1=Heavy, 2=Weak
+    public void attack (Attacker attacker1, Attacker attacker2) {
+        attacker1.doAttack();
+        attacker2.receiveAttack();
 
-        if (attackerDefined.canHeavyAttack()) {
+        attacker2.doAttack();
+        attacker1.receiveAttack();
+    }
+
+
+
+        //pablo code
+        /*
+        if (attacker instanceof Wizard) {
+            Wizard attackerWizard = (Wizard) attacker;
+        }
+        else { Warrior attackerWarrior = (Warrior) attacker;}
+
+        if (attackerWizard.canHeavyAttack() || attackerWarrior.canHeavyAttack() ) {
             setDamage(attacker,1);
             setHpLoose(attacker, defender,1);
         }
         else {
             setHpLoose(defender,attacker,2);
         }
-    }
+    }*/
 
     //imprimir los atributos despues de cada ataque
     //dar opción de elegir el tipo de ataque despues de cada ataque

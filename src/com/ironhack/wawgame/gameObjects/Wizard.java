@@ -6,7 +6,7 @@ public class Wizard extends Character implements Attacker {
     private int intelligence;
     private double mana;
 
-    private static int manaDamageHeavyAttack = -5;
+    private static int manaDamageHeavyAttack = 5;
     private static int manaDamageWeakAttack = 1;
 
 
@@ -57,6 +57,26 @@ public class Wizard extends Character implements Attacker {
         }
         else {
             return manaDamageWeakAttack;
+        }
+    }
+
+    @Override
+    public void doAttack() {
+        if (this.mana >= manaDamageWeakAttack) {
+            this.mana -=manaDamageWeakAttack;
+        }
+        else {
+            this.mana -= manaDamageWeakAttack;
+        }
+    }
+
+    @Override
+    public void receiveAttack () {
+        if (this.mana > Math.abs (manaDamageHeavyAttack)) {
+            this.hp = hpDamageHeavy;
+        }
+        else {
+            this.hp = hpDamageWeak;
         }
     }
 }

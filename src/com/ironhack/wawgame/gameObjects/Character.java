@@ -3,9 +3,10 @@ package com.ironhack.wawgame.gameObjects;
 public abstract class Character {
     private Integer id;
     private String name;
-    private int hp;
+    protected int hp;
     private boolean isAlive;
-
+    protected final int hpDamageHeavy = 3;
+    protected final int hpDamageWeak  = 1;
 
     //Constructor
     public Character(Integer id, String name, int hp, boolean isAlive, boolean isWarrior, boolean isWizard) {
@@ -25,7 +26,6 @@ public abstract class Character {
     }
 
     //GETTERS & SETTERS
-
 
     public int getHp () {
         return this.hp;

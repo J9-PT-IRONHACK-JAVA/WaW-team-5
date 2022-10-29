@@ -7,6 +7,7 @@ public class Warrior extends Character implements Attacker {
     private static int staminaDamageHeavyAttack = -5;
     private static int staminaDamageWeakAttack = 1;
 
+
     //Constructor
     public Warrior(Integer id, String name, int hp, boolean isAlive, boolean isWarrior, boolean isWizard, int stamina, double strength) {
         super(id, name, hp, isAlive);
@@ -18,6 +19,8 @@ public class Warrior extends Character implements Attacker {
     // add setters checking max value
             // stamina: random between 10-50
             // strength: random between 1-10
+    //metodo Heavy Attack
+    //metodo Weak Attack
 
     public void updateStamina (int stamina, int typeOfAttack) {
         if (typeOfAttack == 1) {
@@ -57,6 +60,26 @@ public class Warrior extends Character implements Attacker {
         }
         else {
             return staminaDamageWeakAttack;
+        }
+    }
+
+    @Override
+    public void doAttack() {
+        if (this.stamina >= staminaDamageHeavyAttack) {
+            this.stamina -=staminaDamageHeavyAttack;
+        }
+        else {
+            this.stamina -= staminaDamageWeakAttack;
+        }
+    }
+
+    @Override
+    public void receiveAttack (){
+        if (this.stamina > Math.abs (staminaDamageHeavyAttack) ) {
+            this.hp = hpDamageHeavy;
+        }
+        else {
+            this.hp = hpDamageWeak;
         }
     }
 
