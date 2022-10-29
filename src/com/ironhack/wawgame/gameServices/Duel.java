@@ -1,3 +1,5 @@
+//Nuevo test GitHub pablo --> Develop
+
 package com.ironhack.wawgame.gameServices;
 
 import com.ironhack.wawgame.gameObjects.Attacker;
@@ -43,7 +45,7 @@ public class Duel {
     //Deifinir de alguna forma si el tipo de combatant que es cada uno WARRIOR O WIZARD
 
     // metodo fight()
-    public void fight (Character combatant1, Character combatant2) {
+    public void fight (Attacker attacker1, Attacker attacker2) {
              while (combatant1.getIsAlive() && combatant2.getIsAlive()) {
                  attack (combatant1, combatant2);
                  attack (combatant2, combatant1);
