@@ -1,7 +1,5 @@
 package com.ironhack.wawgame.gameServices;
 
-import com.ironhack.wawgame.gameObjects.Party;
-
 import java.util.Scanner;
 
 public class Game {

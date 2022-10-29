@@ -2,11 +2,6 @@
 
 package com.ironhack.wawgame.gameServices;
 
-import com.ironhack.wawgame.gameObjects.Attacker;
-import com.ironhack.wawgame.gameObjects.Character;
-import com.ironhack.wawgame.gameObjects.Warrior;
-import com.ironhack.wawgame.gameObjects.Wizard;
-
 public class Duel {
 
     private Character combatant1;
