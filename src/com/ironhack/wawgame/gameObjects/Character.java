@@ -11,7 +11,8 @@ public abstract class Character {
     protected final int hpDamageWeak  = 1;
 
     //Constructor
-    public Character(Integer id, String name, int hp, boolean isAlive, boolean isWarrior, boolean isWizard) {
+
+    public Character(Integer id, String name, int hp, boolean isAlive) {
         this.id = id;
         this.name = name;
         this.hp = hp;
