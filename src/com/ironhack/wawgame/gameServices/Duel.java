@@ -77,4 +77,30 @@ public class Duel {
         attacker1.receiveAttack();
     }
 
+//GETTERS & SETTERS
+
+
+    public Character getCombatant1() {
+        return combatant1;
+    }
+
+    public void setCombatant1(Character combatant1) {
+        this.combatant1 = combatant1;
+    }
+
+    public Character getCombatant2() {
+        return combatant2;
+    }
+
+    public void setCombatant2(Character combatant2) {
+        this.combatant2 = combatant2;
+    }
+
+    public boolean isTie() {
+        return isTie;
+    }
+
+    public void setTie(boolean tie) {
+        isTie = tie;
+    }
 }
