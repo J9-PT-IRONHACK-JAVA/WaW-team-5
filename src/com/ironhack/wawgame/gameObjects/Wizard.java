@@ -9,10 +9,10 @@ public class Wizard extends Character implements Attacker {
     private static int manaDamageWeakAttack = 1;
 
     //Constructor
-    public Wizard(Integer id, String name, int hp, boolean isAlive) {
-        super(id, name, hp, isAlive);
-        this.intelligence = intelligence;
-        this.mana = mana;
+    public Wizard(Integer id, String name) {
+        super(id, name);
+        setIntelligence();
+        setMana();
     }
 
     public int getIntelligence() {
@@ -31,6 +31,11 @@ public class Wizard extends Character implements Attacker {
     public void setMana() {
         int mana=(int)(Math.random()*41+10);
         this.mana = mana;
+    }
+
+    @Override
+    public void setHp() {
+        this.hp = (int) (Math.random() * 51 + 50);
     }
 
     public int doAttack() {
