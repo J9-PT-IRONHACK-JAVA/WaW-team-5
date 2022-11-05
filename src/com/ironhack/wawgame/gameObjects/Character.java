@@ -11,20 +11,21 @@ public abstract class Character {
     protected final int hpDamageWeak  = 1;
 
     //Constructor
-    public Character(Integer id, String name, int hp, boolean isAlive, boolean isWarrior, boolean isWizard) {
+
+    public Character(Integer id, String name, int hp, boolean isAlive) {
         this.id = id;
         this.name = name;
         this.hp = hp;
         this.isAlive = isAlive;
     }
 
-    // add loseHP method
-    // add getters, setters
-    // decide if add isAlive method or is enough with getIsAlive (getter) method
 
-
-    public void looseHp (int hp){
-        this.hp-=hp;
+    public void receiveDamage (int damage){
+        if (this.hp > damage) {
+            this.hp -= damage;
+        } else {
+            this.isAlive = false;
+        }
     }
 
     //GETTERS & SETTERS
@@ -35,5 +36,9 @@ public abstract class Character {
 
     public boolean getIsAlive () {
         return this.isAlive;
+    }
+
+    public void setIsAlive(boolean alive) {
+        isAlive = alive;
     }
 }
