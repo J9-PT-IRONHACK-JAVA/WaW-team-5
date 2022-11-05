@@ -3,18 +3,17 @@ package com.ironhack.wawgame.gameObjects;
 
 public class Wizard extends Character implements Attacker {
 
-    //Atributes
+    //Atributes HE CANVIAT TOT A INT PQ M SEMBLA MILLOR PERO POTSER NO
     private int intelligence;
-    private double mana;
+    private int mana;
 
     private static int manaDamageHeavyAttack = 5;
     private static int manaDamageWeakAttack = 1;
 
 
-
     //Constructor
-    public Wizard(Integer id, String name, int hp, boolean isAlive, int intelligence, double mana) {
-        super(id, name, hp, isAlive;
+    public Wizard(Integer id, String name, int hp, boolean isAlive) {
+        super(id, name, hp, isAlive);
         this.intelligence = intelligence;
         this.mana = mana;
     }
@@ -32,34 +31,38 @@ public class Wizard extends Character implements Attacker {
         return intelligence;
     }
 
-    public void setIntelligence(int intelligence) {
+    public void setIntelligence() {
+        int intelligence=(int)(Math.random()*50+1);
         this.intelligence = intelligence;
     }
 
-    public double getMana() {
+    public int getMana() {
         return mana;
     }
 
-    public void setMana(double mana) {
+    public void setMana() {
+        int mana=(int)(Math.random()*41+10);
         this.mana = mana;
     }
 
-    public void updateMana(double mana, int typeOfAttack) {
-        if (typeOfAttack ==1) {
-            this.mana+=manaDamageHeavyAttack;
-        }
-        else {
-            this.mana+=manaDamageWeakAttack;
-        }    }
+//      EN PPI AIXÒ NO CAL
 
-    public  static int getManaDamage (int typeOfAttack) {
-        if (typeOfAttack == 1) {
-            return manaDamageHeavyAttack;
-        }
-        else {
-            return manaDamageWeakAttack;
-        }
-    }
+//    public void updateMana(double mana, int typeOfAttack) {
+//        if (typeOfAttack ==1) {
+//            this.mana+=manaDamageHeavyAttack;
+//        }
+//        else {
+//            this.mana+=manaDamageWeakAttack;
+//        }    }
+//
+//    public  static int getManaDamage (int typeOfAttack) {
+//        if (typeOfAttack == 1) {
+//            return manaDamageHeavyAttack;
+//        }
+//        else {
+//            return manaDamageWeakAttack;
+//        }
+//    }
 
     @Override
     public void doAttack() {
