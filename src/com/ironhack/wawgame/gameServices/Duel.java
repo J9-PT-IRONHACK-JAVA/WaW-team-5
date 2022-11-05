@@ -1,6 +1,7 @@
 package com.ironhack.wawgame.gameServices;
 
 
+import com.ironhack.wawgame.gameMenus.DuelMenu;
 import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
 
@@ -11,7 +12,6 @@ public class Duel {
     private Character combatant1;
     private Character combatant2;
     private boolean isTie = false;
-
 
 //CONSTRUCTOR
 
@@ -24,10 +24,10 @@ public class Duel {
 //METODOS
     public void fight (Attacker attacker1, Attacker attacker2) {
              while (attacker1.getIsAlive() && attacker2.getIsAlive()) {
-                 attack (attacker1, attacker2);
-                  if (combatant1.getHp() <=0 && combatant2.getHp() <=0) {
-                      this.isTie = true;
-                  }
+                attack (attacker1, attacker2);
+                if (combatant1.getHp() <=0 && combatant2.getHp() <=0) {
+                    this.isTie = true;
+                }
              }
 
     }

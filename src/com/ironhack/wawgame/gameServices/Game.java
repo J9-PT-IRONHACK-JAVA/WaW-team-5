@@ -18,7 +18,7 @@ public class Game {
         autoincrement = 0;
     }
 
-    public Party generateRandomParty() {  // NO HACER POR AHORA
+    public Party generateRandomParty() {  // TODO
         return new Party();
     }
 

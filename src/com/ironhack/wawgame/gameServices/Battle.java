@@ -1,5 +1,6 @@
 package com.ironhack.wawgame.gameServices;
 
+import com.ironhack.wawgame.gameMenus.BattleMenu;
 import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
 import com.ironhack.wawgame.gameObjects.Party;
@@ -25,7 +26,7 @@ public class Battle {
      * Al finalizar el duelo, se envía al perdedor al graveYard. Si es empate se envía a los dos
      * Al enviarse un combatiente al graveYard, se elimina de su party
     */
-    public void nextDuel() {
+    public Object nextDuel() {
 
     //Defino los combatientes del duelo
         var combatant1 = pickCombatant (1,party1);
@@ -50,6 +51,7 @@ public class Battle {
             getCombatantParty(looser).removeCharacterOfParty(looser);
         }
         numberOfDuel++;
+        return null;
     }
 
     /* getCombatantParty devuelve la party a la que pertence un Character
