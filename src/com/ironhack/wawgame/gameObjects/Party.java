@@ -7,6 +7,11 @@ public class Party {
     private int size;
     private final int MAX_SIZE_PARTY = 5;
 
+    public Party() {
+        party = new ArrayList<Character>();
+        size = 0;
+    }
+
     public void addCharacter(Character character) {
         if (size < MAX_SIZE_PARTY) {
             party.add(character);
@@ -17,7 +22,12 @@ public class Party {
     }
 
     public boolean characterIsInParty(int id) {
-        return true;
+        for(Character character: this.party) {
+            if (character.getId() == id) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Character> getParty() {
@@ -26,17 +36,36 @@ public class Party {
 
     //crear un metodo para devolver el character en función de su id
     public Character getCharacterById(int id) {
+        for(Character character: this.party) {
+            if (character.getId() == id) {
+                return character;
+            }
+        }
+        System.out.println("character not found");
         return null;
     }
 
     //crear un metodo que elimine un Character de la party
     public void removeCharacterOfParty(Character character) {
-
+        for(int i = 0; i < this.party.size(); i++) {
+            if (this.party.get(i).getId() == character.getId()) {
+                party.remove(i);
+                break;
+            }
+        }
     }
 
     //crear metodo toString cono los datos de cada Character de la party
     public String toString() {
-        return "hola";
+        String outputParty = "";
+        for (Character character: party) {
+            outputParty = outputParty + "Character{" +
+                    "Id=" + character.getId() +
+                    ", Name=" + character.getName() +
+                    ", Hp=" + character.getHp() +
+                    "}\n";
+        }
+        return outputParty;
     }
 
 }

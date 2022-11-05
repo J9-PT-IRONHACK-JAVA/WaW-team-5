@@ -14,6 +14,7 @@ public class Battle {
 
 //CONSTRUCTOR
     public Battle(Party party1, Party party2) {
+        this.graveYard = new ArrayList<Character>();
         this.party1 = party1;
         this.party2 = party2;
     }

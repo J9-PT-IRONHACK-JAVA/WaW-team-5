@@ -22,14 +22,6 @@ public class Duel {
 
 
 //METODOS
-
-    /*fight realiza todos los atacantes entre los combatans hasta que uno de los dos muere
-    *Como parametros se ponen instancias del interface Attack en lugar de tipo Character
-    * para evitar la necesidad de tener que identificar si el Character es Wizard o Warrior
-    * ya que Character es Abstract y no puede ser instanciada.
-    * @param attacker1
-    * @param attacker2
-    */
     public void fight (Attacker attacker1, Attacker attacker2) {
              while (attacker1.getIsAlive() && attacker2.getIsAlive()) {
                  attack (attacker1, attacker2);
@@ -40,9 +32,6 @@ public class Duel {
 
     }
 
-    //getLooser devuelve en tipo Character del perdedor del duelo
-    //@param combatant 1: combatiente 1 de la clase Duel
-    //@param combatant 1: combatiente 2 de la clase Duel
     public Character getLooser (Character combatant1, Character combatant2) {
         if (combatant1.getHp() <=0) {
             combatant1.setIsAlive (false);

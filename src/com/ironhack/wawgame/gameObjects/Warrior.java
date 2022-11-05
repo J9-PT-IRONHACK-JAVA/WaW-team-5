@@ -8,14 +8,19 @@ public class Warrior extends Character implements Attacker {
     private static int staminaDamageWeakAttack = 1;
 
     //constructor
-    public Warrior(Integer id, String name, int hp, boolean isAlive) {
-        super(id, name, hp, isAlive);
+    public Warrior(int id, String name) {
+        super(id, name);
         setStamina();
         setStrength();
     }
 
     public int getStamina() {
         return stamina;
+    }
+
+    @Override
+    public void setHp() {
+        this.hp = (int) (Math.random() * 101 + 100);
     }
 
     public void setStamina() {

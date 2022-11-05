@@ -12,11 +12,11 @@ public abstract class Character {
 
     //Constructor
 
-    public Character(Integer id, String name, int hp, boolean isAlive) {
+    public Character(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.hp = hp;
-        this.isAlive = isAlive;
+        this.setHp();
+        this.isAlive = true;
     }
 
 
@@ -41,4 +41,18 @@ public abstract class Character {
     public void setIsAlive(boolean alive) {
         isAlive = alive;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public abstract void setHp();
 }
