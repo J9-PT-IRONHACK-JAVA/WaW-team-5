@@ -1,27 +1,25 @@
 package com.ironhack.wawgame;
 
+import com.ironhack.wawgame.gameServices.Battle;
+import com.ironhack.wawgame.gameServices.Game;
+
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Game game = new Game();
         while (true) {
             String resp = game.askSomethingToUser("Do you want to play a game?");
             if (resp.equals("yes")) {
-                // crear lista de characters 1;
-                // crear lista de characters 2;
-//
-                // team1 = new team(lista de characters1);
-                // team2 = new team(lista de characters2);
-//
-                // battle = new batle(team1, team2);
-//
-                // battle.initilizeGame();
-//
-                // while (!battle.isFinished()) {
+                var party1 = game.generatePartyFromCsv("src/party1.csv");
+                var party2 = game.generatePartyFromCsv("src/party2.csv");
 
-                //     battle.NextRound();
-                // }
+                var battle = new Battle(party1, party2);
 
-
+                while (!battle.isFinished()) {
+                    battle.nextDuel();
+                    battle.printGraveYard();
+                }
             } else {
                 break;
             }
