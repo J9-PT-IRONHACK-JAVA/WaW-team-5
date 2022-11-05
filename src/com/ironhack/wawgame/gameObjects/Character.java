@@ -2,7 +2,7 @@
 
 package com.ironhack.wawgame.gameObjects;
 
-public abstract class Character {
+public class Character {
     private Integer id;
     private String name;
     protected int hp;
@@ -11,7 +11,7 @@ public abstract class Character {
     protected final int hpDamageWeak  = 1;
 
     //Constructor
-    public Character(Integer id, String name, int hp, boolean isAlive, boolean isWarrior, boolean isWizard) {
+    public Character() {
         this.id = id;
         this.name = name;
         this.hp = hp;
