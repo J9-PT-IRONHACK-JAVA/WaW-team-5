@@ -2,49 +2,27 @@
 package com.ironhack.wawgame.gameObjects;
 
 public class Wizard extends Character implements Attacker {
+    // ATTRIBUTES
     private int intelligence;
     private int mana;
+    private static int manaNeededFireball = 5;
+    private static int manaWonStaffAttack = 1;
 
-    private static int manaDamageHeavyAttack = 5;
-    private static int manaDamageWeakAttack = 1;
-
-    //Constructor
+    // CONSTRUCTOR
     public Wizard(Integer id, String name) {
         super(id, name);
         setIntelligence();
         setMana();
     }
 
-    public int getIntelligence() {
-        return intelligence;
-    }
-
-    public void setIntelligence() {
-        int intelligence=(int)(Math.random()*50+1);
-        this.intelligence = intelligence;
-    }
-
-    public int getMana() {
-        return mana;
-    }
-
-    public void setMana() {
-        int mana=(int)(Math.random()*41+10);
-        this.mana = mana;
-    }
-
-    @Override
-    public void setHp() {
-        this.hp = (int) (Math.random() * 51 + 50);
-    }
-
+    // METHODS
     public int doAttack() {
-        if (this.mana >= manaDamageHeavyAttack) {
-            this.mana -= manaDamageHeavyAttack;
-            return manaDamageHeavyAttack;
+        if (this.mana >= manaNeededFireball) {
+            this.mana -= manaNeededFireball;
+            return getIntelligence();
         } else {
-            this.mana -= manaDamageWeakAttack;
-            return manaDamageWeakAttack;
+            this.mana -= manaWonStaffAttack;
+            return 2;
         }
     }
 
@@ -52,4 +30,24 @@ public class Wizard extends Character implements Attacker {
     public void receiveAttack(int damage) {
         super.receiveDamage(damage);
     }
+
+    // GETTERS & SETTERS
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    private void setIntelligence() {
+        this.intelligence = (int)(Math.random()*50+1);
+    }
+
+    private void setMana() {
+        this.mana = (int)(Math.random()*41+10);
+    }
+
+    @Override
+    public void setHp() {
+        super.setHp((int) (Math.random() *  51 + 50));
+    }
+
+
 }

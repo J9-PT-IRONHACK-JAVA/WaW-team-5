@@ -94,6 +94,7 @@ public class Battle {
 
         while (!party.characterIsInParty(iDCharacter1)) { //pendiente de crear getId en Character y characterIsInParty en Party
             System.out.println("Character iD is not in the party, please choose other");
+            iDCharacter1 = scanner.nextInt();
         }
         // combatiente1 =  party1.chooseCharacter("1"); //comprobar si está vivo, si está devolver el character
         return party.getCharacterById(iDCharacter1);

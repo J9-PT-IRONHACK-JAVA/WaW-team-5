@@ -3,15 +3,15 @@
 package com.ironhack.wawgame.gameObjects;
 
 public abstract class Character {
+    // ATTRIBUTES
     private Integer id;
     private String name;
-    protected int hp;
+    private int hp;
     private boolean isAlive;
     protected final int hpDamageHeavy = 3;
     protected final int hpDamageWeak  = 1;
 
-    //Constructor
-
+    //CONSTRUCTOR
     public Character(Integer id, String name) {
         this.id = id;
         this.name = name;
@@ -54,5 +54,7 @@ public abstract class Character {
         this.hp = hp;
     }
 
-    public abstract void setHp();
+    public void setHp() {
+
+    }
 }
