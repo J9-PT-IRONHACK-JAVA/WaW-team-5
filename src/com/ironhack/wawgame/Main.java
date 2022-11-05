@@ -6,6 +6,7 @@ public class Main {
         while (true) {
             String resp = game.askSomethingToUser("Do you want to play a game?");
             if (resp.equals("yes")) {
+
                 // crear lista de characters 1;
                 // crear lista de characters 2;
 //

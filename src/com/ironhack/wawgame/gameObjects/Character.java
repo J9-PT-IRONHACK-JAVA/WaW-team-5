@@ -19,13 +19,13 @@ public abstract class Character {
         this.isAlive = isAlive;
     }
 
-    // add loseHP method
-    // add getters, setters
-    // decide if add isAlive method or is enough with getIsAlive (getter) method
 
-
-    public void looseHp (int hp){
-        this.hp-=hp;
+    public void receiveDamage (int damage){
+        if (this.hp > damage) {
+            this.hp -= damage;
+        } else {
+            this.isAlive = false;
+        }
     }
 
     //GETTERS & SETTERS
@@ -36,5 +36,9 @@ public abstract class Character {
 
     public boolean getIsAlive () {
         return this.isAlive;
+    }
+
+    public void setIsAlive(boolean alive) {
+        isAlive = alive;
     }
 }

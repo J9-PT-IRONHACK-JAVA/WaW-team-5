@@ -3,9 +3,9 @@ package com.ironhack.wawgame.gameObjects;
 public interface Attacker {
 
 
-    public void doAttack();
+    public int doAttack();
 
-    public void receiveAttack ();
+    public void receiveAttack (int damage);
 
     public boolean getIsAlive ();
 

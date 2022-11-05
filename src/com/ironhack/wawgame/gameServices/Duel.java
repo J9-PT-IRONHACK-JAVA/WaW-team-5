@@ -70,11 +70,11 @@ public class Duel {
     //@param defender: es el Character que recibe el ataque
     //@param typeOfAttack: tipo de ataque que realiza attacker: 1=Heavy, 2=Weak
     public void attack (Attacker attacker1, Attacker attacker2) {
-        attacker1.doAttack();
-        attacker2.receiveAttack();
+        var damageAttacker1 = attacker1.doAttack();
+        attacker2.receiveAttack(damageAttacker1);
 
-        attacker2.doAttack();
-        attacker1.receiveAttack();
+        var damageAttacker2 = attacker2.doAttack();
+        attacker1.receiveAttack(damageAttacker2);
     }
 
 //GETTERS & SETTERS

@@ -10,23 +10,11 @@ public class Warrior extends Character implements Attacker {
     private static int staminaDamageWeakAttack = 1;
 
     //constructor
-
     public Warrior(Integer id, String name, int hp, boolean isAlive) {
         super(id, name, hp, isAlive);
-        this.stamina = stamina;
-        this.strength = strength;
+        setStamina();
+        setStrength();
     }
-
-    @Override
-    public boolean getIsAlive() {
-        return super.getIsAlive();
-    }
-
-
-    // add setters checking max value
-    // stamina: random between 10-50
-    // strength: random between 1-10
-
 
     public int getStamina() {
         return stamina;
@@ -34,7 +22,7 @@ public class Warrior extends Character implements Attacker {
 
     public void setStamina() {
         //determinar el valor random de la stamina
-        int stamina=(int)(Math.random()*41+10);
+        int stamina = (int) (Math.random() * 41 + 10);
         this.stamina = stamina;
     }
 
@@ -43,51 +31,23 @@ public class Warrior extends Character implements Attacker {
     }
 
     public void setStrength() {
-        int strength =(int)(Math.random()*10+1);
+        int strength = (int) (Math.random() * 10 + 1);
         this.strength = strength;
     }
 
-
-    // add Warrior related methods implementing Attacker interface
-
     @Override
-    public void doAttack() {
+    public int doAttack() {
         if (this.stamina >= staminaDamageHeavyAttack) {
-            this.stamina -=staminaDamageHeavyAttack;
-        }
-        else {
+            this.stamina -= staminaDamageHeavyAttack;
+            return staminaDamageHeavyAttack;
+        } else {
             this.stamina -= staminaDamageWeakAttack;
+            return staminaDamageWeakAttack;
         }
     }
 
     @Override
-    public void receiveAttack (){
-        if (this.stamina > Math.abs (staminaDamageHeavyAttack) ) {
-            this.hp = hpDamageHeavy;
-        }
-        else {
-            this.hp = hpDamageWeak;
-        }
+    public void receiveAttack(int damage) {
+        super.receiveDamage(damage);
     }
-// en principi això no cal:
-
-    //    public void updateStamina (int stamina, int typeOfAttack) {
-//        if (typeOfAttack == 1) {
-//            this.stamina+=staminaDamageHeavyAttack;
-//        }
-//        else {
-//            this.stamina+=staminaDamageWeakAttack;
-//        }
-//
-//    }
-    //    public  static int getStaminaDamage (int typeOfAttack) {
-//        if (typeOfAttack == 1) {
-//            return staminaDamageHeavyAttack;
-//        }
-//        else {
-//            return staminaDamageWeakAttack;
-//        }
-//    }
-
-
 }
