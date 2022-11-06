@@ -33,37 +33,10 @@ public class Menus {
         return scanner.nextLine();
     }
 
-    //Confirmación que las partys se han generado
-    public static void partysGenerated () {
-        System.out.println("Parties generated. Battle ready to start");
-    }
-
-    //Imprimir los componentes de cada party
-    public static void printPartiesCharacters (int partyNumber, ArrayList<Character> party) {
-        System.out.println("PARTY " + partyNumber + " combatants");
-        System.out.println("********************************");
-        System.out.println("WIZARDS: ");
-        for (Character character : party) {
-            if (character instanceof Wizard) {
-                System.out.println(character);
-            }
-        }
-        System.out.println("WARRIORS: ");
-        for (Character character : party) {
-            if (character instanceof Warrior) {
-                System.out.println(character);
-            }
-        }
-    }
 
 
-    //Comienzo de la battalla
-    public  static void battleBegins () {
-        System.out.println("▒█▀▀█ █▀▀█ ▀▀█▀▀ ▀▀█▀▀ █░░ █▀▀ 　 █▀▀▄ █▀▀ █▀▀▀ ░▀░ █▀▀▄ █▀▀");
-        System.out.println("▒█▀▀▄ █▄▄█ ░░█░░ ░░█░░ █░░ █▀▀ 　 █▀▀▄ █▀▀ █░▀█ ▀█▀ █░░█ ▀▀█");
-        System.out.println("▒█▄▄█ ▀░░▀ ░░▀░░ ░░▀░░ ▀▀▀ ▀▀▀ 　 ▀▀▀░ ▀▀▀ ▀▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀");
-        System.out.println("⚔️️️️️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️");
-    }
+
+
 
     //Comienzo del duelo n
     public static void duelBegins (int numberOfDuel) {
