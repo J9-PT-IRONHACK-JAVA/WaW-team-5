@@ -41,7 +41,10 @@ public class Battle {
         //En caso de que fight termina en empate, enviar los dos al cementerio y eliminarlo de sus partys
         if (duel.isTie()) {
             graveYard.add(combatant1);
+            BattleMenu.printCharacterIsGoingtoGraveyard(combatant1);
             graveYard.add(combatant2);
+            BattleMenu.printCharacterIsGoingtoGraveyard(combatant2);
+
 
             party1.removeCharacterOfParty (combatant1);
             party2.removeCharacterOfParty (combatant2);
@@ -49,6 +52,7 @@ public class Battle {
         } else { //si no es empate, obtener el perdedor, enviarlo al cementerio y eliminarlo de su party
             var looser = duel.getLooser(combatant1,combatant2);
             graveYard.add(looser);
+            BattleMenu.printCharacterIsGoingtoGraveyard(looser);
             getCombatantParty(looser).removeCharacterOfParty(looser);
         }
         numberOfDuel++;
@@ -73,6 +77,7 @@ public class Battle {
      */
     public boolean isFinished() {
         if (party1.getParty().size() == 0 || party2.getParty().size() == 0 ) {
+            BattleMenu.printBattleIsFinished();
             return true;
         }
         else {

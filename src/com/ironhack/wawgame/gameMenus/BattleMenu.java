@@ -51,7 +51,7 @@ public class BattleMenu {
 
     }
 
-    /* printGraveYard imprime los Characters que hay en el cementerio*/
+    //Imprime los Characters que hay en el cementerio*/
     public static void printGraveYard (Battle battle) {
         System.out.println("💀 ░█▀▀█ ░█▀▀█ ░█▀▀█  ░█ █  ░█▀▀▀ ░█  ░█ ░█▀▀█ ░█▀▀█ ░█▀▀▄ 💀");
         System.out.println("💀 ░█─▄▄ ░█▄▄▀ ░█▄▄█  ░█ █  ░█▀▀▀ ░█▄▄▄█ ░█▄▄█ ░█▄▄▀ ░█ ░█ 💀");
@@ -62,6 +62,19 @@ public class BattleMenu {
         for (Character character:battle.getGraveYard()) {
             System.out.println(character.getId() + "|" + character.getName());
         }
+    }
+
+    //Mensaje informando el combatant que va al graveyard
+    public static void printCharacterIsGoingtoGraveyard (Character character) {
+        System.out.println(character.getName() + " is dead. Now, " + character.getName() + " is in the graveyard");
+    }
+
+    //Mensaje informando cuando la batalla ha terminado
+    public static void printBattleIsFinished () {
+        System.out.println("░█▀▀█ ─█▀▀█ ▀▀█▀▀ ▀▀█▀▀ ░█─── ░█▀▀▀ █ ░█▀▀▀█ 　 ░█▀▀▀█ ░█──░█ ░█▀▀▀ ░█▀▀█ ");
+        System.out.println("░█▀▀▄ ░█▄▄█ ─░█── ─░█── ░█─── ░█▀▀▀ ─ ─▀▀▀▄▄ 　 ░█──░█ ─░█░█─ ░█▀▀▀ ░█▄▄▀ ");
+        System.out.println("░█▄▄█ ░█─░█ ─░█── ─░█── ░█▄▄█ ░█▄▄▄ ─ ░█▄▄▄█ 　 ░█▄▄▄█ ──▀▄▀─ ░█▄▄▄ ░█─░█\n");
+
     }
 
 
