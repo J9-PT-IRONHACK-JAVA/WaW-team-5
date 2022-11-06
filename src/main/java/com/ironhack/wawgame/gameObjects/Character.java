@@ -1,5 +1,3 @@
-//Nuevo test GitHub pablo --> Develop
-
 package com.ironhack.wawgame.gameObjects;
 
 public abstract class Character {

@@ -88,7 +88,7 @@ public class Menus {
     }
 
     //Imprirmir log del duelo
-    public static void  printDuelLogs (Attacker attacker, Attacker defender) {
+    public static void  printDuelLogs (Character attacker, Character defender) {
         System.out.println(attacker.getName() + "ataca a "+defender.getName());
         if (defender.getHp() <=0) {
             System.out.println(defender.getName () +" died");
