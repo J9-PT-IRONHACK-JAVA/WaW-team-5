@@ -18,6 +18,7 @@ public class Battle {
         this.graveYard = new ArrayList<Character>();
         this.party1 = party1;
         this.party2 = party2;
+        BattleMenu.battleBegins();
     }
 
 //METODOS
@@ -85,32 +86,20 @@ public class Battle {
      * @return, devuelve el Character que el jugador ha elegido.
      */
     public Character pickCombatant (int playerNumber,Party party) {
+        var charactersOfParty = party.getParty();
         var scanner =  new Scanner(System.in);
-        System.out.println("\nPLAYER " + playerNumber +":");
-        System.out.println("Choose id of Warrior or Wizard to duel: "); //Elegirlo por iD
-        // imprimir caracteres y propiedades de la party
-        System.out.println(party); //pendiente de crear toString en Party
+
+        BattleMenu.printCharactersAlive(playerNumber,charactersOfParty);
         int iDCharacter1 = scanner.nextInt();
 
-        while (!party.characterIsInParty(iDCharacter1)) { //pendiente de crear getId en Character y characterIsInParty en Party
-            System.out.println("Character iD is not in the party, please choose other");
+        while (!party.characterIsInParty(iDCharacter1)) {
+            BattleMenu.printWrongIdSelected();
         }
         // combatiente1 =  party1.chooseCharacter("1"); //comprobar si está vivo, si está devolver el character
         return party.getCharacterById(iDCharacter1);
     }
 
-    /* printGraveYard imprime los Characters que hay en el cementerio*/
-    public void printGraveYard () {
-        System.out.println("💀 ░█▀▀█ ░█▀▀█ ░█▀▀█  ░█ █  ░█▀▀▀ ░█  ░█ ░█▀▀█ ░█▀▀█ ░█▀▀▄ 💀");
-        System.out.println("💀 ░█─▄▄ ░█▄▄▀ ░█▄▄█  ░█ █  ░█▀▀▀ ░█▄▄▄█ ░█▄▄█ ░█▄▄▀ ░█ ░█ 💀");
-        System.out.println("💀 ░█▄▄█ ░█ ░█ ░█ ░█   ▀▄▀  ░█▄▄▄   ░█   ░█ ░█ ░█ ░█ ░█▄▄▀ 💀\n");
 
-        System.out.println("|ID - NAME");
-        System.out.println("----------");
-        for (Character character:graveYard) {
-            System.out.println(character.getId() + "|" + character.getName());
-        }
-    }
 
 //GETTERS & SETTERS
     public Party getParty1() {

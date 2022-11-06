@@ -1,5 +1,6 @@
 package com.ironhack.wawgame;
 
+import com.ironhack.wawgame.gameMenus.BattleMenu;
 import com.ironhack.wawgame.gameServices.Battle;
 import com.ironhack.wawgame.gameServices.Game;
 
@@ -18,7 +19,7 @@ public class Main {
 
                 while (!battle.isFinished()) {
                     battle.nextDuel();
-                    battle.printGraveYard();
+                    BattleMenu.printGraveYard(battle);
                 }
             } else {
                 break;
