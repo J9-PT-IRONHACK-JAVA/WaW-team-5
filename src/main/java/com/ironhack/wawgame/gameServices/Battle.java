@@ -1,6 +1,7 @@
 package com.ironhack.wawgame.gameServices;
 
 import com.ironhack.wawgame.gameMenus.BattleMenu;
+import com.ironhack.wawgame.gameMenus.DuelMenu;
 import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
 import com.ironhack.wawgame.gameObjects.Party;
@@ -56,6 +57,7 @@ public class Battle {
             getCombatantParty(looser).removeCharacterOfParty(looser);
         }
         numberOfDuel++;
+        DuelMenu.duelFinished();
         return null;
     }
 
