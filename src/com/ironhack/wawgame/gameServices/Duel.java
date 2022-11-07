@@ -25,8 +25,10 @@ public class Duel {
     public void fight (Attacker attacker1, Attacker attacker2) {
              while (attacker1.getIsAlive() && attacker2.getIsAlive()) {
                 attack (attacker1, attacker2);
+
                 if (combatant1.getHp() <=0 && combatant2.getHp() <=0) {
                     this.isTie = true;
+                    DuelMenu.isATie();
                 }
              }
 
@@ -35,9 +37,13 @@ public class Duel {
     public Character getLooser (Character combatant1, Character combatant2) {
         if (combatant1.getHp() <=0) {
             combatant1.setIsAlive (false);
+            DuelMenu.looserDuel((Character)combatant1);
+            DuelMenu.winnerDuel((Character)combatant2);
             return combatant1;
         } else {
             combatant2.setIsAlive (false);
+            DuelMenu.looserDuel((Character)combatant2);
+            DuelMenu.winnerDuel((Character)combatant1);
             return combatant2;
         }
     }
@@ -64,6 +70,9 @@ public class Duel {
 
         var damageAttacker2 = attacker2.doAttack();
         attacker1.receiveAttack(damageAttacker2);
+
+        //los atacantes atacan y sale por pantalla
+        DuelMenu.attackLog(attacker1,attacker2);
     }
 
 //GETTERS & SETTERS
