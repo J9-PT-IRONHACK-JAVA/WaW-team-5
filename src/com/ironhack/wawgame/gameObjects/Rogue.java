@@ -1,5 +1,7 @@
 package com.ironhack.wawgame.gameObjects;
 
+import com.ironhack.wawgame.gameMenus.CharactersMenu;
+
 import java.util.Random;
 
 public class Rogue extends Character implements Attacker {
@@ -18,6 +20,7 @@ public class Rogue extends Character implements Attacker {
 
     @Override
     public int doAttack() {
+        CharactersMenu.printPreparingAttack("Rogue", this.getName());
         if (this.rage >= rageNeededHeavyAttack) {
             this.rage -= rageNeededHeavyAttack;
             return getAgility()*2;

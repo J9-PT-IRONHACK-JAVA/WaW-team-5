@@ -11,8 +11,8 @@ import java.io.PrintStream;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Writer.printStringCharByCharHorizontally(">======||==0");
-        Writer.printFileLineByLine("src/TheChosenOneAwakened.txt");
+        // Writer.printStringCharByCharHorizontally(">======||==0");
+        Writer.printFileLineByLine("src/TheChosenOneAwakened.txt", 200);
         Game game = new Game();
         while (true) {
             String resp = game.askSomethingToUser("Do you want to play a game?");

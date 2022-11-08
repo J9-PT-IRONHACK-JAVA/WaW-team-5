@@ -4,14 +4,14 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Writer {
-    public static void printFileLineByLine(String path) throws FileNotFoundException, InterruptedException {
+    public static void printFileLineByLine(String path, int speed) throws FileNotFoundException, InterruptedException {
         File partyFile = new File(path);
         Scanner reader = new Scanner(partyFile);
         while (reader.hasNext()) {
             String[] lineCut;
             var line = reader.nextLine();
             System.out.println(line);
-            Thread.sleep(300);
+            Thread.sleep(speed);
         }
     }
 
@@ -24,6 +24,15 @@ public class Writer {
             System.out.print(output + "\n");
             System.out.print(output + "\n");
             Thread.sleep(100);
+        }
+    }
+
+    public static void convertCharToFont(char c) throws FileNotFoundException, InterruptedException {
+        switch (c){
+            case 'a':
+                printFileLineByLine("", 100);
+            default:
+                printFileLineByLine("", 100);
         }
     }
 }

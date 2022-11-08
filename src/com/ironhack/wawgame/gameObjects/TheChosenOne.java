@@ -1,5 +1,7 @@
 package com.ironhack.wawgame.gameObjects;
 
+import com.ironhack.wawgame.gameMenus.CharactersMenu;
+
 import java.util.Random;
 
 public class TheChosenOne extends Character implements Attacker {
@@ -8,12 +10,18 @@ public class TheChosenOne extends Character implements Attacker {
 
     public TheChosenOne(int id, String name) {
         super(id, name);
-        setHp(10);
+        setHp(30);
         setStrength(1);
         setTheChosenOne(false);
     }
     @Override
     public int doAttack() {
+        CharactersMenu.printPreparingAttack("The chosen one", this.getName());
+        if (!isTheChosenOne) {
+
+        } else {
+
+        }
         return strength;
     }
     @Override

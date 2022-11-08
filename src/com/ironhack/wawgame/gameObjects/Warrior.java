@@ -1,5 +1,7 @@
 package com.ironhack.wawgame.gameObjects;
 
+import com.ironhack.wawgame.gameMenus.CharactersMenu;
+
 public class Warrior extends Character implements Attacker {
     // ATTRIBUTES
     private int stamina;
@@ -17,6 +19,7 @@ public class Warrior extends Character implements Attacker {
     // METHODS
     @Override
     public int doAttack() {
+        CharactersMenu.printPreparingAttack("Warrior", this.getName());
         if (this.stamina >= staminaNeededHeavyAttack) {
             this.stamina -= staminaNeededHeavyAttack;
             return getStrength()*2;

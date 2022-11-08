@@ -1,6 +1,8 @@
 //Nuevo test GitHub pablo --> Develop
 package com.ironhack.wawgame.gameObjects;
 
+import com.ironhack.wawgame.gameMenus.CharactersMenu;
+
 public class Wizard extends Character implements Attacker {
     // ATTRIBUTES
     private int intelligence;
@@ -17,6 +19,7 @@ public class Wizard extends Character implements Attacker {
 
     // METHODS
     public int doAttack() {
+        CharactersMenu.printPreparingAttack("The chosen one", this.getName());
         if (this.mana >= manaNeededFireball) {
             this.mana -= manaNeededFireball;
             return getIntelligence();
