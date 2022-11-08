@@ -1,6 +1,7 @@
 package com.ironhack.wawgame.gameServices;
 
 import com.ironhack.wawgame.gameMenus.BattleMenu;
+import com.ironhack.wawgame.gameMenus.DuelMenu;
 import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
 import com.ironhack.wawgame.gameObjects.Party;
@@ -56,6 +57,7 @@ public class Battle {
             getCombatantParty(looser).removeCharacterOfParty(looser);
         }
         numberOfDuel++;
+        DuelMenu.duelFinished();
         return null;
     }
 
@@ -99,6 +101,7 @@ public class Battle {
 
         while (!party.characterIsInParty(iDCharacter1)) {
             BattleMenu.printWrongIdSelected();
+            iDCharacter1 = scanner.nextInt();
         }
         // combatiente1 =  party1.chooseCharacter("1"); //comprobar si está vivo, si está devolver el character
         return party.getCharacterById(iDCharacter1);

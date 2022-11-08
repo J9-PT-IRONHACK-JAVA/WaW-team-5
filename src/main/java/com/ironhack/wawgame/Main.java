@@ -12,8 +12,8 @@ public class Main {
         while (true) {
             String resp = game.askSomethingToUser("Do you want to play a game?");
             if (resp.equals("yes")) {
-                var party1 = game.generatePartyFromCsv("src/party1.csv");
-                var party2 = game.generatePartyFromCsv("src/party2.csv");
+                var party1 = game.generatePartyFromCsv("src/main/java/party1.csv");
+                var party2 = game.generatePartyFromCsv("src/main/java/party2.csv");
 
                 var battle = new Battle(party1, party2);
 

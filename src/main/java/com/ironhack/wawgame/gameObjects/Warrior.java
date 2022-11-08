@@ -4,7 +4,7 @@ public class Warrior extends Character implements Attacker {
     // Atributes
     private int stamina;
     private int strength;
-    private static int staminaDamageHeavyAttack = -5;
+    private static int staminaDamageHeavyAttack = 5;
     private static int staminaDamageWeakAttack = 1;
 
     //constructor
@@ -44,7 +44,7 @@ public class Warrior extends Character implements Attacker {
             this.stamina -= staminaDamageHeavyAttack;
             return staminaDamageHeavyAttack;
         } else {
-            this.stamina -= staminaDamageWeakAttack;
+            this.stamina += staminaDamageWeakAttack;
             return staminaDamageWeakAttack;
         }
     }

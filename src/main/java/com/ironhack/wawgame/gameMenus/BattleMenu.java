@@ -33,14 +33,14 @@ public class BattleMenu {
         System.out.println("\uD83E\uDDD9\u200D️ ᗯｴƵ\uD835\uDCD0ᏒƊS: ");
         for (Character character : party) {
             if (character instanceof Wizard) {
-                System.out.println(character);
+                System.out.println(character.toString());
             }
         }
         //Imprimir Warriors de la party
         System.out.println("⚔️ ᗯ\uD835\uDCD0ᎡᏒｴOᏒS: ");
         for (Character character : party) {
             if (character instanceof Warrior) {
-                System.out.println(character);
+                System.out.println(character.toString());
             }
         }
     }

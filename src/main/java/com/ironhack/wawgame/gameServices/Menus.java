@@ -61,12 +61,12 @@ public class Menus {
     }
 
     //Imprirmir log del duelo
-    public static void  printDuelLogs (Attacker attacker, Attacker defender) {
-        System.out.println(attacker.getName() + "ataca a "+defender.getName());
-        if (defender.getHp() <=0) {
-            System.out.println(defender.getName () +" died");
-        }
-    }
+   //  public static void  printDuelLogs (Attacker attacker, Attacker defender) {
+   //      System.out.println(attacker.() + "ataca a "+defender.getName());
+   //      if (defender.getHp() <=0) {
+   //          System.out.println(defender.getName () +" died");
+   //      }
+   //  }
 
     //Imprimir tipo de ataque
 
