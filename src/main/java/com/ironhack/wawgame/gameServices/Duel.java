@@ -75,7 +75,6 @@ public class Duel {
         var damageAttacker2 = attacker2.doAttack();
         attacker1.receiveAttack(damageAttacker2);
 
-        pri
     }
 
 //GETTERS & SETTERS
