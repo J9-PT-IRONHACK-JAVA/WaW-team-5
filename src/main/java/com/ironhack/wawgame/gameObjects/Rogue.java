@@ -20,7 +20,6 @@ public class Rogue extends Character implements Attacker {
 
     @Override
     public int doAttack() {
-        CharactersMenu.printPreparingAttack("Rogue", this.getName());
         if (this.rage >= rageNeededHeavyAttack) {
             this.rage -= rageNeededHeavyAttack;
             return getAgility()*2;
@@ -33,7 +32,7 @@ public class Rogue extends Character implements Attacker {
     private boolean dodge() {
         Random rand = new Random();
         if (rand.nextInt(this.agility, 100) > 70 ) {
-            System.out.println("Rogue dodge the attack");
+            CharactersMenu.printRogueDodge(this.getName());
             return true;
         }
         return false;

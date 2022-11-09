@@ -9,7 +9,7 @@ public abstract class Character {
     private int hp;
     private boolean isAlive;
     protected final int hpDamageHeavy = 3;
-    protected final int hpDamageWeak  = 1;
+    protected final int hpDamageWeak = 1;
 
     //CONSTRUCTOR
     public Character(Integer id, String name) {
@@ -20,21 +20,22 @@ public abstract class Character {
     }
 
 
-    public void receiveDamage (int damage){
+    public void receiveDamage(int damage) {
         if (this.hp > damage) {
             this.hp -= damage;
         } else {
+            this.hp = 0;
             this.isAlive = false;
         }
     }
 
     //GETTERS & SETTERS
 
-    public int getHp () {
+    public int getHp() {
         return this.hp;
     }
 
-    public boolean getIsAlive () {
+    public boolean getIsAlive() {
         return this.isAlive;
     }
 
@@ -53,8 +54,8 @@ public abstract class Character {
     public void setHp(int hp) {
         this.hp = hp;
     }
-
-    public void setHp() {
-
+    public void setHp() {}
+    public String toString() {
+        return "Character{" + "Id=" + getId() + ", Name=" + getName() + ", Hp=" + getHp() + "}";
     }
 }

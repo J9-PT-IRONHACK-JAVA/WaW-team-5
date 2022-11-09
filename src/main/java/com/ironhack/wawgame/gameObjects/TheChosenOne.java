@@ -16,7 +16,6 @@ public class TheChosenOne extends Character implements Attacker {
     }
     @Override
     public int doAttack() {
-        CharactersMenu.printPreparingAttack("The chosen one", this.getName());
         if (!isTheChosenOne) {
 
         } else {
@@ -43,11 +42,13 @@ public class TheChosenOne extends Character implements Attacker {
 
     private void theAwakening() {
         if ((Math.random() * 100) >= 90) {
+            CharactersMenu.printChosenOneAwakening(this.getName());
             setHp(350);
             setStrength(75);
             setTheChosenOne(true);
+            setIsAlive(true);
         } else {
-            System.out.println("The oracle was wrong, he wasn't the chosen one");
+            CharactersMenu.printOracleIsWrong(this.getName());
         }
     }
 

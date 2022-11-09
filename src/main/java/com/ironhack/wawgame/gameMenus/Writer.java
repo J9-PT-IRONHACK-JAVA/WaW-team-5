@@ -15,18 +15,29 @@ public class Writer {
         }
     }
 
-    public static void printStringCharByCharHorizontally(String sentence) throws InterruptedException, IOException {
+    public static void printStringCharByCharHorizontally(String sentence, int speed) {
+
         var charArray = sentence.split("");
         String output = "";
         for(String c:charArray) {
-            System.out.print(String.format("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"));
-            output = c + output;
-            System.out.print(output + "\n");
-            System.out.print(output + "\n");
-            Thread.sleep(100);
+            output = output + c;
+            System.out.print(c);
+            try{Thread.sleep(speed);}catch (Exception e){}
+            // Scanner scanner = new Scanner(System.in);
+            // try{Thread.sleep(speed);}catch (Exception e){}
+            // var in = scanner.next();
+            // if (in.equals("\n")){
+            //     scanner.close();
+            //     System.out.print(sentence.substring(0, c.length()));
+            //     break;
+            // }
+            // scanner.close();
         }
     }
 
+    public static void cleanConsole() {
+        System.out.print("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+    }
     public static void convertCharToFont(char c) throws FileNotFoundException, InterruptedException {
         switch (c){
             case 'a':

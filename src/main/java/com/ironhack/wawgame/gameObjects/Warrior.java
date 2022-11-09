@@ -19,10 +19,11 @@ public class Warrior extends Character implements Attacker {
     // METHODS
     @Override
     public int doAttack() {
-        CharactersMenu.printPreparingAttack("Warrior", this.getName());
         if (this.stamina >= staminaNeededHeavyAttack) {
             this.stamina -= staminaNeededHeavyAttack;
-            return getStrength()*2;
+            var damage = getStrength()*2;
+            CharactersMenu.printHeavyAttack(this.getName(),damage);
+            return damage;
         } else {
             this.stamina += staminaWonWeakAttack;
             return getStrength();

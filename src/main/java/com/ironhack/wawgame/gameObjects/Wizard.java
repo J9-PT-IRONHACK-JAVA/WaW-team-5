@@ -19,12 +19,13 @@ public class Wizard extends Character implements Attacker {
 
     // METHODS
     public int doAttack() {
-        CharactersMenu.printPreparingAttack("The chosen one", this.getName());
         if (this.mana >= manaNeededFireball) {
             this.mana -= manaNeededFireball;
-            return getIntelligence();
+            var damage = getIntelligence();
+            CharactersMenu.printFireballAttack(this.getName(),damage);
+            return damage;
         } else {
-            this.mana -= manaWonStaffAttack;
+            this.mana += manaWonStaffAttack;
             return 2;
         }
     }
