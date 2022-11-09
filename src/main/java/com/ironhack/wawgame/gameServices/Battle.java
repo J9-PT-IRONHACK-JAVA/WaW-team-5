@@ -69,9 +69,9 @@ public class Battle {
         for (Character character : party1.getParty()) {
             if (combatant.getId() == character.getId()) {
                 return party1;
-            } else { return party2; }
+            }
         }
-        return null;
+        return party2;
     }
 
     /* isFinished devuelve true cuando batalla entre las partys ha finalizado

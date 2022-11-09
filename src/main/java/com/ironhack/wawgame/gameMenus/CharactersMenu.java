@@ -27,9 +27,9 @@ public class CharactersMenu {
 
 
     // THE CHOSEN ONE MENU
-    public void printTheChosenOneAwakened() {
+    public static void printTheChosenOneAwakened() {
         try {
-            Writer.printFileLineByLine("src/TheChosenOneAwakened", 50);
+            Writer.printFileLineByLine("src/TheChosenOneAwakened.txt", 50);
         } catch (Exception e)  {
             System.out.println("can't print the chosen one, draw not found");
         }

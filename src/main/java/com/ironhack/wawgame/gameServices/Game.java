@@ -1,6 +1,6 @@
 package com.ironhack.wawgame.gameServices;
 
-import com.ironhack.wawgame.gameObjects.Party;
+import com.ironhack.wawgame.gameObjects.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import com.ironhack.wawgame.gameObjects.Character;
-import com.ironhack.wawgame.gameObjects.Warrior;
-import com.ironhack.wawgame.gameObjects.Wizard;
 import net.datafaker.Faker;
 
 public class Game {
@@ -82,6 +80,14 @@ public class Game {
                 var wizard = new Wizard(this.autoincrement, lineCut[0]);
                 this.autoincrement++;
                 party.addCharacter(wizard);
+            } else if (lineCut[1].equals("thechosenone")) {
+                var theChosenOne = new TheChosenOne(this.autoincrement, lineCut[0]);
+                this.autoincrement++;
+                party.addCharacter(theChosenOne);
+            } else if (lineCut[1].equals("rogue")) {
+                var rogue = new Rogue(this.autoincrement, lineCut[0]);
+                this.autoincrement++;
+                party.addCharacter(rogue);
             } else {
                 System.out.println("character type doesn't exist");
             }

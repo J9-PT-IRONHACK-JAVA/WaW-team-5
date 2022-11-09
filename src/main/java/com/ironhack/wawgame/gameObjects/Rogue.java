@@ -12,7 +12,7 @@ public class Rogue extends Character implements Attacker {
     private static final int rageWonWeakAttack = 1;
 
     // CONSTRUCTOR
-    public Rogue(Integer id, String name, int agility, int rage) {
+    public Rogue(Integer id, String name) {
         super(id, name);
         setAgility();
         setRage();
@@ -44,6 +44,9 @@ public class Rogue extends Character implements Attacker {
         }
     }
 
+    public void setHp() {
+        super.setHp((int) (Math.random() * 51 + 50));
+    }
     public int getAgility() {
         return agility;
     }

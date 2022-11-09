@@ -43,6 +43,7 @@ public class TheChosenOne extends Character implements Attacker {
     private void theAwakening() {
         if ((Math.random() * 100) >= 90) {
             CharactersMenu.printChosenOneAwakening(this.getName());
+            CharactersMenu.printTheChosenOneAwakened();
             setHp(350);
             setStrength(75);
             setTheChosenOne(true);

@@ -1,8 +1,7 @@
 package com.ironhack.wawgame.gameMenus;
 
+import com.ironhack.wawgame.gameObjects.*;
 import com.ironhack.wawgame.gameObjects.Character;
-import com.ironhack.wawgame.gameObjects.Warrior;
-import com.ironhack.wawgame.gameObjects.Wizard;
 import com.ironhack.wawgame.gameServices.Battle;
 
 import java.util.ArrayList;
@@ -40,6 +39,22 @@ public class BattleMenu {
         System.out.println("⚔️ ᗯ\uD835\uDCD0ᎡᏒｴOᏒS: ");
         for (Character character : party) {
             if (character instanceof Warrior) {
+                System.out.println(character.toString());
+            }
+        }
+
+        //Imprimir Rogues de la party
+        System.out.println("⚔️ R̷O̷G̷U̷E̷S̷: ");
+        for (Character character : party) {
+            if (character instanceof Rogue) {
+                System.out.println(character.toString());
+            }
+        }
+
+        //Imprimir The Chosen one de la party
+        System.out.println("⚔️ T̶h̶e̶ c̶h̶o̶o̶s̶e̶n̶ o̶n̶e̶s̶: ");
+        for (Character character : party) {
+            if (character instanceof TheChosenOne) {
                 System.out.println(character.toString());
             }
         }
