@@ -41,7 +41,7 @@ public class Duel {
     }
 
     public Character getLooser(Character combatant1, Character combatant2) {
-        if (combatant1.getIsAlive()) {
+        if (!combatant1.getIsAlive()) {
             DuelMenu.looserDuel(combatant1);
             DuelMenu.winnerDuel(combatant2);
             return combatant1;
