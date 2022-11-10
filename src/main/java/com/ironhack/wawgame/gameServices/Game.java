@@ -29,8 +29,8 @@ public class Game {
             if(n==1){
                 //si n=1 crear un warrior
                 // crear un objeto warrior(id,name)
-                var warrior = new Warrior(faker.random().nextInt(), faker.name().firstName());
-
+                var warrior = new Warrior(this.autoincrement, faker.name().firstName());
+                this.autoincrement++;
                 //añadir warrior a la party
                 party.addCharacter(warrior);
                 //copiar info de warrior al csv
@@ -38,8 +38,8 @@ public class Game {
             }else{
                 //n=2 crear un wizard
                 //crear un objeto wizard
-                var wizard = new Wizard(faker.random().nextInt(), faker.name().firstName());
-
+                var wizard = new Wizard(this.autoincrement, faker.name().firstName());
+                this.autoincrement++;
                 //añadir wizard a la party
                 party.addCharacter(wizard);
 
@@ -47,7 +47,7 @@ public class Game {
                 exportToCsv(wizard.getId(),wizard.getName(),(Character) wizard);
             }
         }
-        return new Party();
+        return party;
     }
 
     public static void exportToCsv (int id, String name, Character character) throws IOException {
@@ -100,7 +100,7 @@ public class Game {
         return new Party();
     }
 
-    public String askSomethingToUser(String question) {
+    public static String askSomethingToUser(String question) {
         System.out.println(question);
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
