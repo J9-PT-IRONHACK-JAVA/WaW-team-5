@@ -33,6 +33,7 @@ public class Rogue extends Character implements Attacker {
         Random rand = new Random();
         if (rand.nextInt(this.agility, 100) > 70 ) {
             CharactersMenu.printRogueDodge(this.getName());
+            CharactersMenu.printRogue();
             return true;
         }
         return false;

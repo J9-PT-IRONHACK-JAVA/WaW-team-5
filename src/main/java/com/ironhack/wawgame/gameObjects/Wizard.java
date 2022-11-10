@@ -22,7 +22,6 @@ public class Wizard extends Character implements Attacker {
         if (this.mana >= manaNeededFireball) {
             this.mana -= manaNeededFireball;
             var damage = getIntelligence();
-            CharactersMenu.printFireballAttack(this.getName(),damage);
             return damage;
         } else {
             this.mana += manaWonStaffAttack;

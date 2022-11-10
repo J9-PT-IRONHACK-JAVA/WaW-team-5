@@ -11,7 +11,9 @@ public class Duel {
 
     //ATRIBUTES
     private Character combatant1;
+    private int hpCombatant1;
     private Character combatant2;
+    private int hpCombatant2;
     private boolean isTie = false;
 
 //CONSTRUCTOR
@@ -19,6 +21,8 @@ public class Duel {
     public Duel(Character combatant1, Character combatant2) {
         this.combatant1 = combatant1;
         this.combatant2 = combatant2;
+        this.hpCombatant1 = combatant1.getHp();
+        this.hpCombatant2 = combatant2.getHp();
     }
 
 
@@ -29,7 +33,11 @@ public class Duel {
         int counter = 0;
         while (attacker1.getIsAlive() && attacker2.getIsAlive()) {
             counter++;
+            Writer.printLifeBars(this.hpCombatant1,((Character) attacker1).getHp(), this.hpCombatant2,((Character) attacker2).getHp());
+            try{Thread.sleep(300);}catch (Exception e){}
             attack(attacker1, attacker2);
+
+
             Writer.cleanConsole();
             if (combatant1.getHp() <= 0 && combatant2.getHp() <= 0) {
                 this.isTie = true;

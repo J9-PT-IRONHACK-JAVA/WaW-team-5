@@ -22,7 +22,6 @@ public class Warrior extends Character implements Attacker {
         if (this.stamina >= staminaNeededHeavyAttack) {
             this.stamina -= staminaNeededHeavyAttack;
             var damage = getStrength()*2;
-            CharactersMenu.printHeavyAttack(this.getName(),damage);
             return damage;
         } else {
             this.stamina += staminaWonWeakAttack;
