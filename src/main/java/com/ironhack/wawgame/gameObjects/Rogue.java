@@ -13,20 +13,22 @@ public class Rogue extends Character implements Attacker {
 
     // CONSTRUCTOR
     public Rogue(Integer id, String name) {
-        super(id, name);
+        super(id, name, CharacterType.ROGUE);
         setAgility();
         setRage();
     }
 
     @Override
     public int doAttack() {
+        int damage;
         if (this.rage >= rageNeededHeavyAttack) {
             this.rage -= rageNeededHeavyAttack;
-            return getAgility()*2;
+            damage = getAgility()*2;
         } else {
             this.rage += rageWonWeakAttack;
-            return getAgility();
+            damage = getAgility();
         }
+        return super.doAttack(damage);
     }
 
     private boolean dodge() {
@@ -46,18 +48,18 @@ public class Rogue extends Character implements Attacker {
     }
 
     public void setHp() {
-        super.setHp((int) (Math.random() * 51 + 50));
+        super.setHp(new Random().nextInt(ROGUE_MIN_HP, ROGUE_MAX_HP));
     }
     public int getAgility() {
         return agility;
     }
 
     private void setAgility() {
-        this.agility = (int) (Math.random() * 41 + 10);;
+        this.agility = new Random().nextInt(ROGUE_MIN_AGILITY, ROGUE_MAX_AGILITY);;
     }
 
     private void setRage() {
-        this.rage = (int) (Math.random() * 11 + 10);;
+        this.rage = new Random().nextInt(ROGUE_MIN_RAGE, ROGUE_MAX_RAGE);;
     }
 
     public int getRage() {
@@ -66,6 +68,6 @@ public class Rogue extends Character implements Attacker {
 
     @Override
     public String toString() {
-        return "Rogue {Id=%s, Name=%s, Hp=%s, Agility=%s, Rage=%s}".formatted( getId(), getName(),getHp(), getAgility(), getRage());
+        return "Rogue {Id=%s, Name=%s, Hp=%s, Agility=%s, Rage=%s}".formatted(getId(), getName(), getHp(), getAgility(), getRage());
     }
 }

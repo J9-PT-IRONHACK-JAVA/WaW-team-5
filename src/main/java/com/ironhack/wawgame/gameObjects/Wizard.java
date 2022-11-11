@@ -14,27 +14,27 @@ public class Wizard extends Character implements Attacker {
 
     // CONSTRUCTOR
     public Wizard(Integer id, String name) {
-        super(id, name);
+        super(id, name, CharacterType.WIZARD);
         setIntelligence();
         setMana();
     }
 
     // METHODS
     public int doAttack() {
+        int damage;
         Random rand = new Random();
         if (rand.nextInt(this.mana, 100) > 95 ) {
             CharactersMenu.printWizardSuperAttack(this.getName());
-            var damage = getIntelligence()*3;
-            return damage;
+            damage = getIntelligence()*3;
         }
         if (this.mana >= manaNeededFireball) {
             this.mana -= manaNeededFireball;
-            var damage = getIntelligence();
-            return damage;
+            damage = getIntelligence();
         } else {
             this.mana += manaWonStaffAttack;
-            return 2;
+            damage = 2;
         }
+        return super.doAttack(damage);
     }
 
     @Override
@@ -48,16 +48,16 @@ public class Wizard extends Character implements Attacker {
     }
 
     private void setIntelligence() {
-        this.intelligence = (int)(Math.random()*50+1);
+        this.intelligence = new Random().nextInt(WIZARD_MIN_INTELLIGENCE, WIZARD_MAX_INTELLIGENCE);
     }
 
     private void setMana() {
-        this.mana = (int)(Math.random()*41+10);
+        this.mana = new Random().nextInt(WIZARD_MIN_MANA, WIZARD_MAX_MANA);
     }
 
     @Override
     public void setHp() {
-        super.setHp((int) (Math.random() *  51 + 50));
+        super.setHp(new Random().nextInt(WIZARD_MIN_HP, WIZARD_MAX_HP));
     }
 
     public int getMana() {

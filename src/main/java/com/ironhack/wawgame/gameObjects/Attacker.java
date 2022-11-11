@@ -8,5 +8,4 @@ public interface Attacker {
     public void receiveAttack (int damage);
 
     public boolean getIsAlive ();
-
 }

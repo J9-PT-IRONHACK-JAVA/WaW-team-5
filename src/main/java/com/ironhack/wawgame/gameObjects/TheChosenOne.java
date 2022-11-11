@@ -9,19 +9,14 @@ public class TheChosenOne extends Character implements Attacker {
     private boolean isTheChosenOne;
 
     public TheChosenOne(int id, String name) {
-        super(id, name);
-        setHp(30);
-        setStrength(1);
+        super(id, name, CharacterType.NORMAL_HUMAN);
+        setHp(CHOSEN_ONE_NORMAL_HP);
+        setStrength(CHOSEN_ONE_NORMAL_STRENGTH);
         setTheChosenOne(false);
     }
     @Override
     public int doAttack() {
-        if (!isTheChosenOne) {
-
-        } else {
-
-        }
-        return strength;
+        return super.doAttack(strength);
     }
     @Override
     public void receiveAttack(int damage) {
@@ -44,10 +39,11 @@ public class TheChosenOne extends Character implements Attacker {
         if ((Math.random() * 100) >= 90) {
             CharactersMenu.printChosenOneAwakening(this.getName());
             CharactersMenu.printTheChosenOneAwakened();
-            setHp(350);
-            setStrength(75);
+            setHp(CHOSEN_ONE_AWAKENED_HP);
+            setStrength(CHOSEN_ONE_AWAKENED_STRENGTH);
             setTheChosenOne(true);
             setIsAlive(true);
+            setCharacterType(CharacterType.CHOSEN_ONE);
         } else {
             CharactersMenu.printOracleIsWrong(this.getName());
         }

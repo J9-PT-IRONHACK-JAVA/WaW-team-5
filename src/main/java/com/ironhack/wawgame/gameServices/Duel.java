@@ -109,4 +109,8 @@ public class Duel {
     public void setTie(boolean tie) {
         isTie = tie;
     }
+
+    public int getHpCombatant1() {
+        return hpCombatant1;
+    }
 }

@@ -13,7 +13,7 @@ public class Warrior extends Character implements Attacker {
 
     //CONSTRUCTOR
     public Warrior(int id, String name) {
-        super(id, name);
+        super(id, name, CharacterType.WARRIOR);
         setStamina();
         setStrength();
     }
@@ -21,20 +21,20 @@ public class Warrior extends Character implements Attacker {
     // METHODS
     @Override
     public int doAttack() {
+        int damage;
         Random rand = new Random();
         if (rand.nextInt(this.stamina, 100) > 95 ) {
             CharactersMenu.printWarriorSuperAttack(this.getName());
-            var damage = getStrength()*10;
-            return damage;
+            damage = getStrength()*10;
         }
-        if (this.stamina >= staminaNeededHeavyAttack) {
+        else if (this.stamina >= staminaNeededHeavyAttack) {
             this.stamina -= staminaNeededHeavyAttack;
-            var damage = getStrength()*2;
-            return damage;
+            damage = getStrength()*2;
         } else {
             this.stamina += staminaWonWeakAttack;
-            return getStrength();
+            damage = getStrength();
         }
+        return super.doAttack(damage);
     }
     @Override
     public void receiveAttack(int damage) {
@@ -44,15 +44,15 @@ public class Warrior extends Character implements Attacker {
     // GETTERS & SETTERS
     @Override
     public void setHp() {
-        super.setHp((int) (Math.random() * 101 + 100));
+        super.setHp(new Random().nextInt(WARRIOR_MIN_HP, WARRIOR_MAX_HP));
     }
 
     private void setStamina() {
-        this.stamina = (int) (Math.random() * 41 + 10);
+        this.stamina = new Random().nextInt(WARRIOR_MIN_STAMINA, WARRIOR_MAX_STAMINA);
     }
 
     private void setStrength() {
-        this.strength = (int) (Math.random() * 11 + 1);
+        this.strength = new Random().nextInt(WARRIOR_MIN_STRENGTH, WARRIOR_MAX_STRENGTH);
     }
 
     public int getStrength() {

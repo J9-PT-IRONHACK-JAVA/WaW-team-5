@@ -4,6 +4,14 @@ import com.ironhack.wawgame.gameObjects.Character;
 
 public class CharactersMenu {
 
+    // WEAPON MENU
+    public static void printNotAllowedWeapon() {
+        Writer.printStringCharByCharHorizontally("Unfortunately this weapon have not been made for you and you can't touch it...\n", Writer.LOG_SPEED);
+    }
+
+    public static void printEquipedWeapon() {
+        Writer.printStringCharByCharHorizontally("Nice!! I can feel the power!!\n", Writer.LOG_SPEED);
+    }
     // WARRIOR MENU
     public static void printWarrior() {
     }
