@@ -41,6 +41,8 @@ public class Expedition {
                 if (equip.equals("yes")) {
                     expeditor.equipWeapon(weapon);
                 }
+            } else {
+                ExpeditionMenu.printScapeAfterLose();
             }
             expeditor.setHp(duel.getHpCombatant1());
             expeditor.setIsAlive(true);
