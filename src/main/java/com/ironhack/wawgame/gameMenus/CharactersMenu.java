@@ -8,9 +8,21 @@ public class CharactersMenu {
     public static void printWarrior() {
     }
 
+    public static void printWarriorSuperAttack(String name) {
+        Writer.cleanConsole();
+        Writer.printStringLineByLine("",10);
+        Writer.printStringCharByCharHorizontally("%s is very angry and attack his opponent with his own hands doing a lot of damage\n".formatted(name), Writer.LOG_SPEED);
+    }
+
     // WIZARD MENU
     public void printWizard() {
 
+    }
+
+    public static void printWizardSuperAttack(String name) {
+        Writer.cleanConsole();
+        Writer.printStringLineByLine("",10);
+        Writer.printStringCharByCharHorizontally("%s get the energy from the nature and prepare an energy thunderbolt attack\n".formatted(name), Writer.LOG_SPEED);
     }
 
 
@@ -20,7 +32,7 @@ public class CharactersMenu {
         try {
             Writer.printFileLineByLine("src/TheChosenOneAwakened.txt", 50);
         } catch (Exception e)  {
-            System.out.println("can't print the chosen one, draw not found");
+           Writer.printStringLineByLine(theChosenOne,100);
         }
     }
 
@@ -31,10 +43,6 @@ public class CharactersMenu {
         Writer.printStringCharByCharHorizontally("Is they...", 75);
         try{Thread.sleep(500);}catch (Exception e){}
         Writer.printStringCharByCharHorizontally("...the chosen one?\n", 75);
-    }
-
-    public static void printChosenOneAwakenedAttack(String name) {
-
     }
 
     public static void printOracleIsWrong(String name) {
@@ -56,7 +64,74 @@ public class CharactersMenu {
         try {
             Writer.printFileLineByLine("src/Rogue.txt", 50);
         } catch (Exception e)  {
-            System.out.println("can't print rogue, draw not found");
+            Writer.printStringLineByLine(rogue, 50);
         }
     }
+
+
+    private static final String rogue = """
+                        
+                        _____
+                       /     \\--------------
+                      //\\__   \\---   ---
+                     {{____}   }_-------   ---
+                    /            \\___----------   --
+                   {           __    \\_____,---------------  --
+                    '-,__,___,' \\'--,___---'--------------
+                    || }        \\\\--------------
+                    ||{_        {\\\\--------  ---
+                  {\\'|/ '--,___-' \\\\--------------
+                  /\\\\}          |======--------------
+                 / /\\}   __     | | |---
+                / / /   /  \\_   { | |------------  ---
+               /_/ {   /     \\   }| |-----
+                    \\ {       {  || /--------------
+                     } \\       | ||/-----
+                    '___'      | |--------------
+                              /__|---
+                        
+                        
+            """;
+
+    private static final String theChosenOne = """
+            
+                                               __________
+                                        -----              -----
+                                   ---                            ---
+                               --                                      --
+                          --                    ________                     --
+                        -                      /\\       \\\\                      -
+                      -                       / /\\       \\\\                       -
+                     -          .            / /  \\      _\\\\                       -
+                    -           .        ___ \\ \\___}      \\_____                    -
+                   ·           ' º      ( ______ ___ __________))                    ·
+                  ·            º O      /|      .`T´.   \\     \\\\\\                      ·
+                              O º '    / |    .'     '. /\\    {\\\\\\
+                 .            {{{{    /   \\ ,'         {\\/\\    \\ \\\\                     .
+                              \\   \\__/   / \\___________|/  }    } }}
+                .               \\_/·___ /  {____(_)____}  /     \\{{                      .
+                                          /             | \\_____///
+                                         / /            | /   }  }}
+                .                       /           \\   | @__/  {{                       .
+                                       {             \\__|        {{
+                                       {  /     \\     /          //
+                .                       \\  '     \\   /   /      //                       .
+                                         \\  /\\    \\ /   {       \\\\
+                                          {/| \\    '    /       //
+                 .                          !' \\  /|   /  /    //                       .
+                                            '--|\\/ |     /    {{
+                  .                            |___|\\   {    //                       .
+                   .                           !, ,! }   /  //                       .
+                    .                          |   |{   /\\ //                       .
+                      -                        '---' \\ //                         -
+                        -                            {//                        -
+                          --                                                 --
+                               --                                       --
+                                   ---                            ---
+                                        -----              -----
+                                               ----------
+            """;
+
+
+
 }

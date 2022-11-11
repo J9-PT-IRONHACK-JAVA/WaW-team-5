@@ -2,6 +2,8 @@ package com.ironhack.wawgame.gameObjects;
 
 import com.ironhack.wawgame.gameMenus.CharactersMenu;
 
+import java.util.Random;
+
 public class Warrior extends Character implements Attacker {
     // ATTRIBUTES
     private int stamina;
@@ -19,6 +21,12 @@ public class Warrior extends Character implements Attacker {
     // METHODS
     @Override
     public int doAttack() {
+        Random rand = new Random();
+        if (rand.nextInt(this.stamina, 100) > 95 ) {
+            CharactersMenu.printWarriorSuperAttack(this.getName());
+            var damage = getStrength()*10;
+            return damage;
+        }
         if (this.stamina >= staminaNeededHeavyAttack) {
             this.stamina -= staminaNeededHeavyAttack;
             var damage = getStrength()*2;

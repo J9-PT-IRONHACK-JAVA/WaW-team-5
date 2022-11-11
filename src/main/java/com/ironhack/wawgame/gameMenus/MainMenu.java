@@ -15,7 +15,7 @@ public class MainMenu {
         
         
         """;
-        Writer.printStringLineByLine(welcomeMessage,400);
+        Writer.printStringLineByLine(welcomeMessage,250);
     }
 
     public static String askForGameAndGetResponseFromUser(Game game) {

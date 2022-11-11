@@ -3,6 +3,8 @@ package com.ironhack.wawgame.gameObjects;
 
 import com.ironhack.wawgame.gameMenus.CharactersMenu;
 
+import java.util.Random;
+
 public class Wizard extends Character implements Attacker {
     // ATTRIBUTES
     private int intelligence;
@@ -19,6 +21,12 @@ public class Wizard extends Character implements Attacker {
 
     // METHODS
     public int doAttack() {
+        Random rand = new Random();
+        if (rand.nextInt(this.mana, 100) > 95 ) {
+            CharactersMenu.printWizardSuperAttack(this.getName());
+            var damage = getIntelligence()*3;
+            return damage;
+        }
         if (this.mana >= manaNeededFireball) {
             this.mana -= manaNeededFireball;
             var damage = getIntelligence();
