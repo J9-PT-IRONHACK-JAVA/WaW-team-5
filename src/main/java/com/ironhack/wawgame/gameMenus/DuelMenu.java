@@ -16,7 +16,7 @@ public class DuelMenu {
     }
 
     public static void isATie() {
-        Writer.printStringCharByCharHorizontally("It's a tie! Both combatants fought bravery, but they left their lives in the battle arena... R.I.P.", Writer.LOG_SPEED);
+        Writer.printStringCharByCharHorizontally("It's a tie! Both combatants fought bravery, but they left their lives in the battle arena... R.I.P.\n", Writer.LOG_SPEED);
     }
 
     public static void duelFinished(int counter) {

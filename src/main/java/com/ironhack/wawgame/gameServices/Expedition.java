@@ -2,6 +2,7 @@ package com.ironhack.wawgame.gameServices;
 
 import com.ironhack.wawgame.gameMenus.BattleMenu;
 import com.ironhack.wawgame.gameMenus.ExpeditionMenu;
+import com.ironhack.wawgame.gameMenus.PartyMenu;
 import com.ironhack.wawgame.gameObjects.*;
 import com.ironhack.wawgame.gameObjects.Character;
 import net.datafaker.Faker;
@@ -26,7 +27,7 @@ public class Expedition {
 
     public Object nextExpedition() {
         //Defino los combatientes del duelo
-        var expeditor = pickCombatant(party);
+        var expeditor = party.pickCombatant();
         var monster = generateRandomMonster();
 
         var resp = ExpeditionMenu.showMonsterPowerAndAskToScape((Monster) monster);
@@ -58,21 +59,6 @@ public class Expedition {
         }
 
         return null;
-    }
-
-    public Character pickCombatant(Party party) {
-        var charactersOfParty = party.getParty();
-        var scanner = new Scanner(System.in);
-
-        BattleMenu.printCharactersAlive(party.getPlayerName(), party.getPartyName(), charactersOfParty);
-        int iDCharacter1 = scanner.nextInt();
-
-        while (!party.characterIsInParty(iDCharacter1)) {
-            BattleMenu.printWrongIdSelected();
-            iDCharacter1 = scanner.nextInt();
-        }
-        // combatiente1 =  party1.chooseCharacter("1"); //comprobar si está vivo, si está devolver el character
-        return party.getCharacterById(iDCharacter1);
     }
 
     private Character generateRandomMonster() {

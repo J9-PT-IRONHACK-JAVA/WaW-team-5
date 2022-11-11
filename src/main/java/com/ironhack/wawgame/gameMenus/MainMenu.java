@@ -61,7 +61,7 @@ public class MainMenu {
     }
 
     public static void prinExpeditionsFinished() {
-        Writer.printStringCharByCharHorizontally("The expeditions finishe, let's battle!!\n", Writer.LOG_SPEED);
+        Writer.printStringCharByCharHorizontally("The expeditions finished, let's battle!!\n", Writer.LOG_SPEED);
     }
 
 }

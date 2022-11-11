@@ -59,13 +59,21 @@ public class TheChosenOne extends Character implements Attacker {
 
     public String isTheChosenOne() {
         if (isTheChosenOne) {
-            return "YES MATHAFAKA, que empiecen las ostias como panes";
+            return "yes, I am";
         }
-        return "nope";
+        return "maybe";
     }
 
     @Override
     public String toString() {
-        return "The Chosen One {Id=%s, Name=%s, Hp=%s, Strength=%s, IsTheChosenOne=%s}".formatted( getId(), getName(),getHp(), getStrength(), isTheChosenOne());
+        String weapon = "empty";
+        if (getWeapon() != null){
+            weapon = getWeapon().toString();
+        }
+        String type = "Normal human";
+        if (isTheChosenOne) {
+            type = "The chosen one";
+        }
+        return "%s {Id=%s, Name=%s, Hp=%s, Strength=%s, IsTheChosenOne=%s, Weapon=%s}".formatted(type, getId(), getName(),getHp(), getStrength(), isTheChosenOne(), weapon);
     }
 }

@@ -1,6 +1,10 @@
 package com.ironhack.wawgame.gameObjects;
 
+import com.ironhack.wawgame.gameMenus.BattleMenu;
+import com.ironhack.wawgame.gameMenus.PartyMenu;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Party {
     private String playerName;
@@ -46,6 +50,20 @@ public class Party {
 
     public void setPartyName(String partyName) {
         this.partyName = partyName;
+    }
+
+    public Character pickCombatant() {
+        var scanner = new Scanner(System.in);
+
+        PartyMenu.printParty(this.getPlayerName(), this.getPartyName(), this.party);
+        int iDCharacter1 = scanner.nextInt();
+
+        while (!this.characterIsInParty(iDCharacter1)) {
+            BattleMenu.printWrongIdSelected();
+            iDCharacter1 = scanner.nextInt();
+        }
+        // combatiente1 =  party1.chooseCharacter("1"); //comprobar si está vivo, si está devolver el character
+        return this.getCharacterById(iDCharacter1);
     }
 
     public ArrayList<Character> getParty() {

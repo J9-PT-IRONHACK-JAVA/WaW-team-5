@@ -65,6 +65,10 @@ public class Warrior extends Character implements Attacker {
 
     @Override
     public String toString() {
-        return "Warrior {Id=%s, Name=%s, Hp=%s, Strength=%s, Stamina=%s}".formatted( getId(), getName(),getHp(), getStrength(), getStamina());
+        String weapon = "empty";
+        if (getWeapon() != null){
+            weapon = getWeapon().toString();
+        }
+        return "Warrior {Id=%s, Name=%s, Hp=%s, Strength=%s, Stamina=%s, Weapon=%s}".formatted( getId(), getName(),getHp(), getStrength(), getStamina(), weapon);
     }
 }

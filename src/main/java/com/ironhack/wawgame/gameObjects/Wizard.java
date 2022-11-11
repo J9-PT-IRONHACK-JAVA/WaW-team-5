@@ -66,6 +66,10 @@ public class Wizard extends Character implements Attacker {
 
     @Override
     public String toString() {
-        return "Wizard {Id=%s, Name=%s, Hp=%s, Intelligence=%s, Mana=%s}".formatted( getId(), getName(),getHp(), getIntelligence(), getMana());
+        String weapon = "empty";
+        if (getWeapon() != null){
+            weapon = getWeapon().toString();
+        }
+        return "Wizard {Id=%s, Name=%s, Hp=%s, Intelligence=%s, Mana=%s, Weapon=%s}".formatted( getId(), getName(),getHp(), getIntelligence(), getMana(), weapon);
     }
 }
