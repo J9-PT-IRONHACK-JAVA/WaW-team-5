@@ -42,8 +42,8 @@ public class Main {
                 }
                 party1.setPlayerName(player1Name);
                 party1.setPartyName(party1Name);
-                party1.setPlayerName(player2Name);
-                party1.setPartyName(party2Name);
+                party2.setPlayerName(player2Name);
+                party2.setPartyName(party2Name);
 
                 var expeditionUser1Option = MainMenu.askForExpedition(player1Name);
                 if (expeditionUser1Option.equals("1")) {
@@ -73,5 +73,7 @@ public class Main {
                 break;
             }
         }
+
     }
+
 }
