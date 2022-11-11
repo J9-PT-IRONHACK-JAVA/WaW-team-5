@@ -24,8 +24,8 @@ public class Game {
         int n=0; //inicializams la variable a 0, es el número que asociaremos a wizard o warrior
 
         //crear personajes aleatorios con faker
-        for (int i = 0; i < 4; i++) {
-            n= (int)(Math.random()+1);
+        for (int i = 0; i <= 4; i++) {
+            n= (int)(Math.random()*5);
             if(n==1){
                 //si n=1 crear un warrior
                 // crear un objeto warrior(id,name)
@@ -35,7 +35,7 @@ public class Game {
                 party.addCharacter(warrior);
                 //copiar info de warrior al csv
                 exportToCsv(warrior.getId(),warrior.getName(),(Character) warrior);
-            }else{
+            }else if (n==2){
                 //n=2 crear un wizard
                 //crear un objeto wizard
                 var wizard = new Wizard(this.autoincrement, faker.name().firstName());
@@ -45,6 +45,14 @@ public class Game {
 
                 //copiar info de wizard al csv
                 exportToCsv(wizard.getId(),wizard.getName(),(Character) wizard);
+            } else if (n==3) {
+                var theChosenOne = new TheChosenOne(this.autoincrement, faker.name().firstName());
+                this.autoincrement++;
+                party.addCharacter(theChosenOne);
+            } else {
+                var rogue = new Rogue(this.autoincrement, faker.name().firstName());
+                this.autoincrement++;
+                party.addCharacter(rogue);
             }
         }
         return party;

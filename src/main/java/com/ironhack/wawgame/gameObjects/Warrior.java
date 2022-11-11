@@ -50,4 +50,13 @@ public class Warrior extends Character implements Attacker {
     public int getStrength() {
         return strength;
     }
+
+    public int getStamina() {
+        return stamina;
+    }
+
+    @Override
+    public String toString() {
+        return "Warrior {Id=%s, Name=%s, Hp=%s, Strength=%s, Stamina=%s}".formatted( getId(), getName(),getHp(), getStrength(), getStamina());
+    }
 }

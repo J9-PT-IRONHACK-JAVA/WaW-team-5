@@ -34,9 +34,8 @@ public class Duel {
         while (attacker1.getIsAlive() && attacker2.getIsAlive()) {
             counter++;
             Writer.printLifeBars(this.hpCombatant1,((Character) attacker1).getHp(), this.hpCombatant2,((Character) attacker2).getHp());
-            try{Thread.sleep(300);}catch (Exception e){}
+            try{Thread.sleep(400);}catch (Exception e){}
             attack(attacker1, attacker2);
-
 
             Writer.cleanConsole();
             if (combatant1.getHp() <= 0 && combatant2.getHp() <= 0) {
@@ -45,17 +44,16 @@ public class Duel {
             }
 
         }
-        System.out.println("duel finish after %s attacks".formatted(counter));
+        Writer.printLifeBars(this.hpCombatant1,((Character) attacker1).getHp(), this.hpCombatant2,((Character) attacker2).getHp());
+        DuelMenu.duelFinished(counter);
     }
 
     public Character getLooser(Character combatant1, Character combatant2) {
         if (!combatant1.getIsAlive()) {
-            DuelMenu.looserDuel(combatant1);
-            DuelMenu.winnerDuel(combatant2);
+            DuelMenu.resultOfTheDuel(combatant2, combatant1);
             return combatant1;
         } else {
-            DuelMenu.looserDuel(combatant2);
-            DuelMenu.winnerDuel(combatant1);
+            DuelMenu.resultOfTheDuel(combatant1, combatant2);
             return combatant2;
         }
     }

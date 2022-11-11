@@ -8,21 +8,9 @@ public class CharactersMenu {
     public static void printWarrior() {
     }
 
-    public static void printHeavyAttack(String name, int damage) {
-        Writer.printStringCharByCharHorizontally("%s is full of stamina and make a heavy attack and deals %s points of damage to his opponent".formatted(name, damage),10);
-        Writer.cleanConsole();
-
-    }
-
-
     // WIZARD MENU
     public void printWizard() {
 
-    }
-
-    public static void printFireballAttack(String name, int damage) {
-        Writer.printStringCharByCharHorizontally("%s is full of mana and make a fireball attack and deals %s points of damage to his opponent".formatted(name, damage),10);
-        Writer.cleanConsole();
     }
 
 
@@ -40,7 +28,7 @@ public class CharactersMenu {
         Writer.cleanConsole();
         Writer.printStringCharByCharHorizontally("%s seems dead... but... What is this power feeling?\n".formatted(name), 50);
         Writer.printStringCharByCharHorizontally("Could be possible The oracle was right?...\n", 75);
-        Writer.printStringCharByCharHorizontally("Is he...", 75);
+        Writer.printStringCharByCharHorizontally("Is they...", 75);
         try{Thread.sleep(500);}catch (Exception e){}
         Writer.printStringCharByCharHorizontally("...the chosen one?\n", 75);
     }
@@ -51,14 +39,15 @@ public class CharactersMenu {
 
     public static void printOracleIsWrong(String name) {
         Writer.cleanConsole();
-        Writer.printStringCharByCharHorizontally("%s is dead,, the Oracle was wrong, he wasn't the chosen one\n".formatted(name), 50);
+        Writer.printStringCharByCharHorizontally("%s is dead... the Oracle was wrong, he wasn't the chosen one\n".formatted(name), Writer.LOG_SPEED);
     }
 
 
     // ROGUE MENU
 
     public static void printRogueDodge(String name) {
-        Writer.printStringCharByCharHorizontally("%s is very quick, he dodged the attack of his opponent\n".formatted(name), 100);
+        Writer.cleanConsole();
+        Writer.printStringCharByCharHorizontally("%s is very quick, he dodged the attack of his opponent\n".formatted(name), Writer.LOG_SPEED);
     }
 
 

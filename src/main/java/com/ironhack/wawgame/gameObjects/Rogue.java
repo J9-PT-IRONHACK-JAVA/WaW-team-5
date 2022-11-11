@@ -53,10 +53,19 @@ public class Rogue extends Character implements Attacker {
     }
 
     private void setAgility() {
-        this.agility = (int) (Math.random() * 31 + 10);;
+        this.agility = (int) (Math.random() * 41 + 10);;
     }
 
     private void setRage() {
-        this.rage = (int) (Math.random() * 21 + 10);;
+        this.rage = (int) (Math.random() * 11 + 10);;
+    }
+
+    public int getRage() {
+        return rage;
+    }
+
+    @Override
+    public String toString() {
+        return "Rogue {Id=%s, Name=%s, Hp=%s, Agility=%s, Rage=%s}".formatted( getId(), getName(),getHp(), getAgility(), getRage());
     }
 }

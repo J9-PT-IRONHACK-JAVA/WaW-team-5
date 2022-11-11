@@ -5,6 +5,7 @@ import com.ironhack.wawgame.gameMenus.DuelMenu;
 import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
 import com.ironhack.wawgame.gameObjects.Party;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class Battle {
     private ArrayList<Character> graveYard;
     private int numberOfDuel = 0;
 
-//CONSTRUCTOR
+    //CONSTRUCTOR
     public Battle(Party party1, Party party2) {
         this.graveYard = new ArrayList<Character>();
         this.party1 = party1;
@@ -27,37 +28,33 @@ public class Battle {
     /* nextDuel elige un combatiente de cada party y genera un nuevo duelo entre ambos
      * Al finalizar el duelo, se envía al perdedor al graveYard. Si es empate se envía a los dos
      * Al enviarse un combatiente al graveYard, se elimina de su party
-    */
+     */
     public Object nextDuel() {
 
-    //Defino los combatientes del duelo
-        var combatant1 = pickCombatant (1,party1);
-        var combatant2 = pickCombatant (2,party2);
+        //Defino los combatientes del duelo
+        var combatant1 = pickCombatant(party1);
+        var combatant2 = pickCombatant(party2);
 
-    //Creo el duelo entre ambos combatientes para que luchen
-        Duel duel = new Duel(combatant1,combatant2);
-        duel.fight((Attacker) combatant1,(Attacker) combatant2);
+        //Creo el duelo entre ambos combatientes para que luchen
+        Duel duel = new Duel(combatant1, combatant2);
+        duel.fight((Attacker) combatant1, (Attacker) combatant2);
 
-    //Posibles resultados: empate o que haya un perdedor
+        //Posibles resultados: empate o que haya un perdedor
         //En caso de que fight termina en empate, enviar los dos al cementerio y eliminarlo de sus partys
         if (duel.isTie()) {
             graveYard.add(combatant1);
-            BattleMenu.printCharacterIsGoingtoGraveyard(combatant1);
             graveYard.add(combatant2);
-            BattleMenu.printCharacterIsGoingtoGraveyard(combatant2);
-
-
-            party1.removeCharacterOfParty (combatant1);
-            party2.removeCharacterOfParty (combatant2);
+            BattleMenu.printCharactersGotoGraveyard(combatant1, combatant2);
+            party1.removeCharacterOfParty(combatant1);
+            party2.removeCharacterOfParty(combatant2);
 
         } else { //si no es empate, obtener el perdedor, enviarlo al cementerio y eliminarlo de su party
-            var looser = duel.getLooser(combatant1,combatant2);
+            var looser = duel.getLooser(combatant1, combatant2);
             graveYard.add(looser);
-            BattleMenu.printCharacterIsGoingtoGraveyard(looser);
+            BattleMenu.printCharacterGotoGraveyard(looser);
             getCombatantParty(looser).removeCharacterOfParty(looser);
         }
         numberOfDuel++;
-        DuelMenu.duelFinished();
         return null;
     }
 
@@ -65,7 +62,7 @@ public class Battle {
      * @param combatant, es el Character del que deseamos conocer que party pertenece
      * @return Party, es la party a la que pertenece combatant
      */
-    public Party getCombatantParty (Character combatant) {
+    public Party getCombatantParty(Character combatant) {
         for (Character character : party1.getParty()) {
             if (combatant.getId() == character.getId()) {
                 return party1;
@@ -78,11 +75,10 @@ public class Battle {
      * @return true cuando el tamaño de una de las party es cero.
      */
     public boolean isFinished() {
-        if (party1.getParty().size() == 0 || party2.getParty().size() == 0 ) {
+        if (party1.getParty().size() == 0 || party2.getParty().size() == 0) {
             BattleMenu.printBattleIsFinished();
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -92,11 +88,11 @@ public class Battle {
      * @param party, es la party del jugador
      * @return, devuelve el Character que el jugador ha elegido.
      */
-    public Character pickCombatant (int playerNumber,Party party) {
+    public Character pickCombatant(Party party) {
         var charactersOfParty = party.getParty();
-        var scanner =  new Scanner(System.in);
+        var scanner = new Scanner(System.in);
 
-        BattleMenu.printCharactersAlive(playerNumber,charactersOfParty);
+        BattleMenu.printCharactersAlive(party.getPlayerName(), party.getPartyName(), charactersOfParty);
         int iDCharacter1 = scanner.nextInt();
 
         while (!party.characterIsInParty(iDCharacter1)) {
@@ -108,8 +104,7 @@ public class Battle {
     }
 
 
-
-//GETTERS & SETTERS
+    //GETTERS & SETTERS
     public Party getParty1() {
         return party1;
     }

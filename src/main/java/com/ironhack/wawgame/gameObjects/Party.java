@@ -3,6 +3,8 @@ package com.ironhack.wawgame.gameObjects;
 import java.util.ArrayList;
 
 public class Party {
+    private String playerName;
+    private String partyName;
     private ArrayList<Character> party;
     private int size;
     private final int MAX_SIZE_PARTY = 5;
@@ -28,6 +30,22 @@ public class Party {
             }
         }
         return false;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public String getPartyName() {
+        return partyName;
+    }
+
+    public void setPartyName(String partyName) {
+        this.partyName = partyName;
     }
 
     public ArrayList<Character> getParty() {

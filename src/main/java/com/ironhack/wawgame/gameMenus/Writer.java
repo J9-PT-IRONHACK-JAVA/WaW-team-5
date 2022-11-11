@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Writer {
+
+    public static final int LOG_SPEED = 70;
     public static void printFileLineByLine(String path, int speed) throws FileNotFoundException, InterruptedException {
         File partyFile = new File(path);
         Scanner reader = new Scanner(partyFile);
@@ -13,6 +15,14 @@ public class Writer {
             var line = reader.nextLine();
             System.out.println(line);
             Thread.sleep(speed);
+        }
+    }
+
+    public static void printStringLineByLine(String paragraph, int speed) {
+        var lines = paragraph.split("\n");
+        for (String line: lines) {
+            System.out.println(line);
+            try{Thread.sleep(speed);}catch (Exception e){};
         }
     }
 
@@ -46,7 +56,7 @@ public class Writer {
         builder.replace(remainingLifeBars,25,new String(new char[25-remainingLifeBars]).replace("\0", String.valueOf(incomplete)));
         return builder.toString();
     }
-    public static String addCharacterToBeginingAndEndOfString(String c, String word, int length)  {
+    public static String addCharacterToBeginAndEndOfString(String c, String word, int length)  {
         if (word.length() < length) {
             for (int i =word.length(); i < length; i++) {
                 if (i%2==0) {

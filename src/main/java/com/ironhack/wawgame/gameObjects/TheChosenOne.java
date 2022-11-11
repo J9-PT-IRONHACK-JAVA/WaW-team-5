@@ -56,4 +56,20 @@ public class TheChosenOne extends Character implements Attacker {
     public void setTheChosenOne(boolean theChosenOne) {
         isTheChosenOne = theChosenOne;
     }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public String isTheChosenOne() {
+        if (isTheChosenOne) {
+            return "YES MATHAFAKA, que empiecen las ostias como panes";
+        }
+        return "nope";
+    }
+
+    @Override
+    public String toString() {
+        return "The Chosen One {Id=%s, Name=%s, Hp=%s, Strength=%s, IsTheChosenOne=%s}".formatted( getId(), getName(),getHp(), getStrength(), isTheChosenOne());
+    }
 }

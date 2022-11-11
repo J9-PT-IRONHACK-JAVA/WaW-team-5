@@ -52,5 +52,12 @@ public class Wizard extends Character implements Attacker {
         super.setHp((int) (Math.random() *  51 + 50));
     }
 
+    public int getMana() {
+        return mana;
+    }
 
+    @Override
+    public String toString() {
+        return "Wizard {Id=%s, Name=%s, Hp=%s, Intelligence=%s, Mana=%s}".formatted( getId(), getName(),getHp(), getIntelligence(), getMana());
+    }
 }

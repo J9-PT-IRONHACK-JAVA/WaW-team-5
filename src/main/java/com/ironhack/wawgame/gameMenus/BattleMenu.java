@@ -5,15 +5,19 @@ import com.ironhack.wawgame.gameObjects.Character;
 import com.ironhack.wawgame.gameServices.Battle;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BattleMenu {
 
     //Comienzo de la batalla
     public static void battleBegins () {
-        System.out.println("▒█▀▀█ █▀▀█░ ▀▀█▀▀ ▀▀█▀▀ █░  █▀▀   ▒█▀▀▄ █▀▀ █▀▀▀ ░▀░ █▀▀▄ █▀▀");
-        System.out.println("▒█▀▀▄ █▄▄█░   █░    █░  █░  █▀▀   ▒█▀▀▄ █▀▀ █░▀█ ▀█▀ █░ █ ▀▀█");
-        System.out.println("▒█▄▄█ █░ █░   █░    █░  █▄▄ █▄▄   ▒█▄▄█ █▄▄ █▄▄█ ▄█▄ █░ █ ▄▄█");
-        System.out.println("⚔️️️️️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️");
+        Writer.printStringLineByLine("""
+        ▒█▀▀█ █▀▀█░ ▀▀█▀▀ ▀▀█▀▀ █░  █▀▀   ▒█▀▀▄ █▀▀ █▀▀▀ ░▀░ █▀▀▄ █▀▀
+        ▒█▀▀▄ █▄▄█░   █░    █░  █░  █▀▀   ▒█▀▀▄ █▀▀ █░▀█ ▀█▀ █░ █ ▀▀█
+        ▒█▄▄█ █░ █░   █░    █░  █▄▄ █▄▄   ▒█▄▄█ █▄▄ █▄▄█ ▄█▄ █░ █ ▄▄█
+        ⚔️️️️️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️
+        
+        """, 300);
     }
 
     //Tras acabar la batalla, preguntar si desea otra batalla
@@ -23,23 +27,23 @@ public class BattleMenu {
 
 
     //Imprimir los componentes de cada party para Battle
-    public static void printCharactersAlive (int playerNumber, ArrayList<Character> party) {
-        System.out.println("\nPLAYER " + playerNumber +":");
+    public static void printCharactersAlive (String playerName, String partyName, ArrayList<Character> party) {
+        System.out.println("\nPLAYER " + playerName +":");
         System.out.println("Choose id of Warrior or Wizard to duel: "); //Elegirlo por iD
-        System.out.println("PARTY " + playerNumber + " alive combatants");
+        System.out.println("PARTY " + partyName + " alive combatants");
         System.out.println("********************************");
         //Imprimir Wizards de la party
         System.out.println("\uD83E\uDDD9\u200D️ ᗯｴƵ\uD835\uDCD0ᏒƊS: ");
         for (Character character : party) {
             if (character instanceof Wizard) {
-                System.out.println(character.toString());
+                System.out.println(((Wizard)character).toString());
             }
         }
         //Imprimir Warriors de la party
         System.out.println("⚔️ ᗯ\uD835\uDCD0ᎡᏒｴOᏒS: ");
         for (Character character : party) {
             if (character instanceof Warrior) {
-                System.out.println(character.toString());
+                System.out.println(((Warrior)character).toString());
             }
         }
 
@@ -47,7 +51,7 @@ public class BattleMenu {
         System.out.println("⚔️ R̷O̷G̷U̷E̷S̷: ");
         for (Character character : party) {
             if (character instanceof Rogue) {
-                System.out.println(character.toString());
+                System.out.println(((Rogue)character).toString());
             }
         }
 
@@ -55,7 +59,7 @@ public class BattleMenu {
         System.out.println("⚔️ T̶h̶e̶ c̶h̶o̶o̶s̶e̶n̶ o̶n̶e̶s̶: ");
         for (Character character : party) {
             if (character instanceof TheChosenOne) {
-                System.out.println(character.toString());
+                System.out.println(((TheChosenOne)character).toString());
             }
         }
     }
@@ -68,28 +72,54 @@ public class BattleMenu {
 
     //Imprime los Characters que hay en el cementerio*/
     public static void printGraveYard (Battle battle) {
-        System.out.println("💀 ░█▀▀█ ░█▀▀█ ░█▀▀█  ░█ █  ░█▀▀▀ ░█  ░█ ░█▀▀█ ░█▀▀█ ░█▀▀▄ 💀");
-        System.out.println("💀 ░█─▄▄ ░█▄▄▀ ░█▄▄█  ░█ █  ░█▀▀▀ ░█▄▄▄█ ░█▄▄█ ░█▄▄▀ ░█ ░█ 💀");
-        System.out.println("💀 ░█▄▄█ ░█ ░█ ░█ ░█   ▀▄▀  ░█▄▄▄   ░█   ░█ ░█ ░█ ░█ ░█▄▄▀ 💀\n");
+        Writer.printStringLineByLine("""
+         💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀
+        💀 ░█▀▀█ ░█▀▀█ ░█▀▀█  ░█ █  ░█▀▀▀ ░█  ░█ ░█▀▀█ ░█▀▀█ ░█▀▀▄ 💀
+        💀 ░█─▄▄ ░█▄▄▀ ░█▄▄█  ░█ █  ░█▀▀▀ ░█▄▄▄█ ░█▄▄█ ░█▄▄▀ ░█ ░█ 💀
+        💀 ░█▄▄█ ░█ ░█ ░█ ░█   ▀▄▀  ░█▄▄▄   ░█   ░█ ░█ ░█ ░█ ░█▄▄▀ 💀
+         💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀
+        
+        """, 300);
 
         System.out.println("|ID - NAME");
         System.out.println("----------");
         for (Character character:battle.getGraveYard()) {
-            System.out.println(character.getId() + "|" + character.getName());
+           Writer.printStringCharByCharHorizontally(character.getId() + "  |  " + character.getName() + getRandomGraveyardSentence() + "\n", Writer.LOG_SPEED);
         }
     }
 
     //Mensaje informando el combatant que va al graveyard
-    public static void printCharacterIsGoingtoGraveyard (Character character) {
-        System.out.println(character.getName() + " is dead. Now, " + character.getName() + " is in the graveyard");
+    public static void printCharactersGotoGraveyard (Character character1, Character character2) {
+        Writer.printStringCharByCharHorizontally("Both combatants are dead, %s and %s go to the graveyard\n".formatted(character1.getName(), character2.getName()),Writer.LOG_SPEED);
+    }
+    public static void printCharacterGotoGraveyard (Character character1) {
+        Writer.printStringCharByCharHorizontally("%s is dead and go to the graveyard\n".formatted(character1.getName()),Writer.LOG_SPEED);
     }
 
     //Mensaje informando cuando la batalla ha terminado
     public static void printBattleIsFinished () {
-        System.out.println("░█▀▀█ ─█▀▀█ ▀▀█▀▀ ▀▀█▀▀ ░█─── ░█▀▀▀ █ ░█▀▀▀█ 　 ░█▀▀▀█ ░█──░█ ░█▀▀▀ ░█▀▀█ ");
-        System.out.println("░█▀▀▄ ░█▄▄█ ─░█── ─░█── ░█─── ░█▀▀▀ ─ ─▀▀▀▄▄ 　 ░█──░█ ─░█░█─ ░█▀▀▀ ░█▄▄▀ ");
-        System.out.println("░█▄▄█ ░█─░█ ─░█── ─░█── ░█▄▄█ ░█▄▄▄ ─ ░█▄▄▄█ 　 ░█▄▄▄█ ──▀▄▀─ ░█▄▄▄ ░█─░█\n");
+        Writer.printStringLineByLine("""
+        ░█▀▀█ ─█▀▀█ ▀▀█▀▀ ▀▀█▀▀ ░█─── ░█▀▀▀ █ ░█▀▀▀█ 　 ░█▀▀▀█ ░█──░█ ░█▀▀▀ ░█▀▀█
+        ░█▀▀▄ ░█▄▄█ ─░█── ─░█── ░█─── ░█▀▀▀ ─ ─▀▀▀▄▄ 　 ░█──░█ ─░█░█─ ░█▀▀▀ ░█▄▄▀
+        ░█▄▄█ ░█─░█ ─░█── ─░█── ░█▄▄█ ░█▄▄▄ ─ ░█▄▄▄█ 　 ░█▄▄▄█ ──▀▄▀─ ░█▄▄▄ ░█─░█
+        
+        """,300);
+    }
 
+    public static String getRandomGraveyardSentence() {
+        int r = new Random().nextInt(1,10);
+        switch (r){
+            case 1:
+                return "....use to like pastrami";
+            case 2:
+                return "....use to dream with a little house in the mountains and a herd of goats";
+            case 3:
+                return "....liked to drink tea with his grandma";
+            case 4:
+                return "....liked things";
+            default:
+                return "...... otras cosas";
+        }
     }
 
 
