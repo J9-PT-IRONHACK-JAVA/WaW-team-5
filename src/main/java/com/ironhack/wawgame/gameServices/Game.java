@@ -1,6 +1,6 @@
 package com.ironhack.wawgame.gameServices;
 
-import com.ironhack.wawgame.gameObjects.Party;
+import com.ironhack.wawgame.gameObjects.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import com.ironhack.wawgame.gameObjects.Character;
-import com.ironhack.wawgame.gameObjects.Warrior;
-import com.ironhack.wawgame.gameObjects.Wizard;
 import net.datafaker.Faker;
 
 public class Game {
@@ -26,30 +24,42 @@ public class Game {
         int n=0; //inicializams la variable a 0, es el número que asociaremos a wizard o warrior
 
         //crear personajes aleatorios con faker
-        for (int i = 0; i < 4; i++) {
-            n= (int)(Math.random()+1);
-                    if(n==1){
-                        //si n=1 crear un warrior
-                        // crear un objeto warrior(id,name)
-                        var warrior = new Warrior(faker.random().nextInt(), faker.name().firstName());
+        for (int i = 0; i <= 4; i++) {
+            n= (int)(Math.random()*5+1);
+            if(n==1){
+                //si n=1 crear un warrior
+                // crear un objeto warrior(id,name)
+                var warrior = new Warrior(this.autoincrement, faker.name().firstName());
+                this.autoincrement++;
+                //añadir warrior a la party
+                party.addCharacter(warrior);
+                //copiar info de warrior al csv: ID, nombre y skills del warrior
+                exportToCsv(warrior.getId(),warrior.getName(),(Character) warrior);
+            }else if (n==2){
+                //n=2 crear un wizard
+                //crear un objeto wizard
+                var wizard = new Wizard(this.autoincrement, faker.name().firstName());
+                this.autoincrement++;
+                //añadir wizard a la party
+                party.addCharacter(wizard);
 
-                        //añadir warrior a la party
-                        party.addCharacter(warrior);
-                        //copiar info de warrior al csv
-                        exportToCsv(warrior.getId(),warrior.getName(),(Character) warrior);
-            }else{
-                        //n=2 crear un wizard
-                        //crear un objeto wizard
-                        var wizard = new Wizard(faker.random().nextInt(), faker.name().firstName());
-
-                        //añadir wizard a la party
-                        party.addCharacter(wizard);
-
-                        //copiar info de wizard al csv
-                        exportToCsv(wizard.getId(),wizard.getName(),(Character) wizard);
+                //copiar info de wizard al csv
+                exportToCsv(wizard.getId(),wizard.getName(),(Character) wizard);
+            } else if (n==3) {
+                //creamos un nuevo character, theChosenOne igual que los anteriores
+                var theChosenOne = new TheChosenOne(this.autoincrement, faker.name().firstName());
+                this.autoincrement++;
+                party.addCharacter(theChosenOne);
+                exportToCsv(theChosenOne.getId(),theChosenOne.getName(),(Character) theChosenOne);
+            } else {
+                var rogue = new Rogue(this.autoincrement, faker.name().firstName());
+                this.autoincrement++;
+                party.addCharacter(rogue);
+                exportToCsv(rogue.getId(),rogue.getName(),(Character) rogue);
             }
-           }
-        return new Party();
+        }
+        //devuelve el equipo creado
+        return party;
     }
 
     public static void exportToCsv (int id, String name, Character character) throws IOException {
@@ -58,10 +68,14 @@ public class Game {
 
         if(character instanceof Warrior){
             characterIs = "warrior";
-        } else{
+        } else if (character instanceof Wizard){
             characterIs = "wizard";
+        } else if (character instanceof TheChosenOne){
+            characterIs = "theChosenOne";
+        } else {
+            characterIs = "rogue";
         }
-        writer.write (id+","+ name +","+characterIs);
+        writer.write (id+","+ name +","+characterIs + "\n");
 
         writer.close();
     }
@@ -82,6 +96,14 @@ public class Game {
                 var wizard = new Wizard(this.autoincrement, lineCut[0]);
                 this.autoincrement++;
                 party.addCharacter(wizard);
+            } else if (lineCut[1].equals("thechosenone")) {
+                var theChosenOne = new TheChosenOne(this.autoincrement, lineCut[0]);
+                this.autoincrement++;
+                party.addCharacter(theChosenOne);
+            } else if (lineCut[1].equals("rogue")) {
+                var rogue = new Rogue(this.autoincrement, lineCut[0]);
+                this.autoincrement++;
+                party.addCharacter(rogue);
             } else {
                 System.out.println("character type doesn't exist");
             }
@@ -94,7 +116,7 @@ public class Game {
         return new Party();
     }
 
-    public String askSomethingToUser(String question) {
+    public static String askSomethingToUser(String question) {
         System.out.println(question);
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
