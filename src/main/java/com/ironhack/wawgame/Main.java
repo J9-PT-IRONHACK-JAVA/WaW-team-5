@@ -7,7 +7,6 @@ import com.ironhack.wawgame.gameServices.Battle;
 import com.ironhack.wawgame.gameServices.Expedition;
 import com.ironhack.wawgame.gameServices.Game;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class Main {
@@ -62,7 +61,7 @@ public class Main {
                     }
 
                 }
-                MainMenu.prinExpeditionsFinished();
+                MainMenu.printExpeditionsFinished();
                 var battle = new Battle(party1, party2);
 
                 while (!battle.isFinished()) {
