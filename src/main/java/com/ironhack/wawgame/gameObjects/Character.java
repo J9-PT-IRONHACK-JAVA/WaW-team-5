@@ -66,7 +66,6 @@ public abstract class Character {
     }
 
 
-
     public int doAttack(int damage) {
         if (weapon != null) {
             return (int)((double)damage* weapon.getStatsMultiplayer());

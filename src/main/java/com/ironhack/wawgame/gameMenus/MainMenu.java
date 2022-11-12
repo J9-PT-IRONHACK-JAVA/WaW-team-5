@@ -27,8 +27,8 @@ public class MainMenu {
         Writer.printStringLineByLine(welcomeMessage,1000);
     }
 
-    public static String askForGameAndGetResponseFromUser(Game game) {
-        return game.askSomethingToUser("""
+    public static String askForGameAndGetResponseFromUser() {
+        return Writer.askSomethingToUser("""
                                 ▒█▀▀▄ █▀▀█ 　 █░░█ █▀▀█ █░░█ 　 █░░░█ █▀▀█ █▀▀▄ ▀▀█▀▀ 　 ▀▀█▀▀ █▀▀█ 　 █▀▀█ █░░ █▀▀█ █░░█ 　 █▀▀█   █▀▀▀ █▀▀█ █▀▄▀█ █▀▀ ▀█                
                                 ▒█░▒█ █░░█ 　 █▄▄█ █░░█ █░░█ 　 █▄█▄█ █▄▄█ █░░█ ░░█░░ 　 ░░█░░ █░░█ 　 █░░█ █░░ █▄▄█ █▄▄█ 　 █▄▄█   █░▀█ █▄▄█ █░▀░█ █▀▀ █▀                
                                 ▒█▄▄▀ ▀▀▀▀ 　 ▄▄▄█ ▀▀▀▀ ░▀▀▀ 　 ░▀░▀░ ▀░░▀ ▀░░▀ ░░▀░░ 　 ░░▀░░ ▀▀▀▀ 　 █▀▀▀ ▀▀▀ ▀░░▀ ▄▄▄█ 　 ▀░░▀   ▀▀▀▀ ▀░░▀ ▀░░░▀ ▀▀▀ ▄░

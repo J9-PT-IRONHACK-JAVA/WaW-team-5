@@ -25,7 +25,7 @@ public class Game {
 
         //crear personajes aleatorios con faker
         for (int i = 0; i <= 4; i++) {
-            n= (int)(Math.random()*5);
+            n= (int)(Math.random()*5+1);
             if(n==1){
                 //si n=1 crear un warrior
                 // crear un objeto warrior(id,name)
@@ -33,7 +33,7 @@ public class Game {
                 this.autoincrement++;
                 //añadir warrior a la party
                 party.addCharacter(warrior);
-                //copiar info de warrior al csv
+                //copiar info de warrior al csv: ID, nombre y skills del warrior
                 exportToCsv(warrior.getId(),warrior.getName(),(Character) warrior);
             }else if (n==2){
                 //n=2 crear un wizard
@@ -46,15 +46,19 @@ public class Game {
                 //copiar info de wizard al csv
                 exportToCsv(wizard.getId(),wizard.getName(),(Character) wizard);
             } else if (n==3) {
+                //creamos un nuevo character, theChosenOne igual que los anteriores
                 var theChosenOne = new TheChosenOne(this.autoincrement, faker.name().firstName());
                 this.autoincrement++;
                 party.addCharacter(theChosenOne);
+                exportToCsv(theChosenOne.getId(),theChosenOne.getName(),(Character) theChosenOne);
             } else {
                 var rogue = new Rogue(this.autoincrement, faker.name().firstName());
                 this.autoincrement++;
                 party.addCharacter(rogue);
+                exportToCsv(rogue.getId(),rogue.getName(),(Character) rogue);
             }
         }
+        //devuelve el equipo creado
         return party;
     }
 
@@ -64,10 +68,14 @@ public class Game {
 
         if(character instanceof Warrior){
             characterIs = "warrior";
-        } else{
+        } else if (character instanceof Wizard){
             characterIs = "wizard";
+        } else if (character instanceof TheChosenOne){
+            characterIs = "theChosenOne";
+        } else {
+            characterIs = "rogue";
         }
-        writer.write (id+","+ name +","+characterIs);
+        writer.write (id+","+ name +","+characterIs + "\n");
 
         writer.close();
     }
