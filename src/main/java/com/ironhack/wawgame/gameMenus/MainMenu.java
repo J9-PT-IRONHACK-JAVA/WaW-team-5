@@ -1,6 +1,5 @@
 package com.ironhack.wawgame.gameMenus;
 
-import com.ironhack.wawgame.gameObjects.Wizard;
 import com.ironhack.wawgame.gameServices.Game;
 
 public class MainMenu {
@@ -28,8 +27,8 @@ public class MainMenu {
         Writer.printStringLineByLine(welcomeMessage,1000);
     }
 
-    public static String askForGameAndGetResponseFromUser(Game game) {
-        return game.askSomethingToUser("""
+    public static String askForGameAndGetResponseFromUser() {
+        return Writer.askSomethingToUser("""
                                 ▒█▀▀▄ █▀▀█ 　 █░░█ █▀▀█ █░░█ 　 █░░░█ █▀▀█ █▀▀▄ ▀▀█▀▀ 　 ▀▀█▀▀ █▀▀█ 　 █▀▀█ █░░ █▀▀█ █░░█ 　 █▀▀█   █▀▀▀ █▀▀█ █▀▄▀█ █▀▀ ▀█                
                                 ▒█░▒█ █░░█ 　 █▄▄█ █░░█ █░░█ 　 █▄█▄█ █▄▄█ █░░█ ░░█░░ 　 ░░█░░ █░░█ 　 █░░█ █░░ █▄▄█ █▄▄█ 　 █▄▄█   █░▀█ █▄▄█ █░▀░█ █▀▀ █▀                
                                 ▒█▄▄▀ ▀▀▀▀ 　 ▄▄▄█ ▀▀▀▀ ░▀▀▀ 　 ░▀░▀░ ▀░░▀ ▀░░▀ ░░▀░░ 　 ░░▀░░ ▀▀▀▀ 　 █▀▀▀ ▀▀▀ ▀░░▀ ▄▄▄█ 　 ▀░░▀   ▀▀▀▀ ▀░░▀ ▀░░░▀ ▀▀▀ ▄░
@@ -70,8 +69,8 @@ public class MainMenu {
         return Writer.askSomethingToUser(options);
     }
 
-    public static void prinExpeditionsFinished() {
-        Writer.printStringCharByCharHorizontally("The expeditions finished, let's battle!!\n", Writer.LOG_SPEED);
+    public static void printExpeditionsFinished() {
+        Writer.printStringCharByCharHorizontally("The expeditions finish, let's battle!!\n", Writer.LOG_SPEED);
     }
 
 
