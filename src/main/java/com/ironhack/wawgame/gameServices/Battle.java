@@ -90,6 +90,18 @@ public class Battle {
      * @return, devuelve el Character que el jugador ha elegido.
      */
 
+    public String getBattleWinner () {
+        if (party1.getParty().size() == 0 && party2.getParty().size() == 0) {
+            return "Battle is a tie";
+        } else if (party1.getParty().size() == 0){
+            return party1.getPartyName();
+        }
+        else {
+            return party2.getPartyName();
+        }
+    }
+
+
 
 
     //GETTERS & SETTERS
