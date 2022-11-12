@@ -24,7 +24,7 @@ The user choose how to generate the party (randomly or from a CSV file). There w
 
 ## Requierements
 
-
+To execute the game, the user should install IntelliJ and "Faker" dependency.
 
 
 ## Description
