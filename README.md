@@ -15,6 +15,7 @@
 
 *[Maintainers](#Maintainers)
 
+<div align= "justify">
 
 ## Introduction
 
@@ -68,4 +69,4 @@ Current maintainers:
 - Jose Luís López
 - Elisabet Aguilar
 
-
+</div>
