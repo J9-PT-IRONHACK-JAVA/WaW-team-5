@@ -32,6 +32,9 @@ public class ExpeditionMenu {
         Writer.printStringCharByCharHorizontally("After observe the monster you decide to scape from them....                        coward!\n", Writer.LOG_SPEED );
     }
 
+    public static void printScapeAfterLose() {
+        Writer.printStringCharByCharHorizontally("The monster was very strong and you have to scape....                        coward!\n", Writer.LOG_SPEED );
+    }
     public static void printNotAllowedExpeditions() {
         Writer.printStringCharByCharHorizontally("Your champions are tired and you can't continue..",Writer.LOG_SPEED);
     }
@@ -39,5 +42,7 @@ public class ExpeditionMenu {
     public static String askForAnotherExpedition() {
         return Writer.askSomethingToUser("Do you want to make another expedition? (type yes or no)");
     }
+
+
 }
 

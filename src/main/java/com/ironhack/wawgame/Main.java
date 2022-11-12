@@ -18,7 +18,7 @@ public class Main {
         while (true) {
             String resp;
             if (firsTime) {
-                resp = MainMenu.askForGameAndGetResponseFromUser(game);
+                resp = MainMenu.askForGameAndGetResponseFromUser();
             } else {
                 resp = MainMenu.askForAnotherGameAndGetResponseFromUser();
             }
@@ -69,6 +69,7 @@ public class Main {
                     battle.nextDuel();
                     BattleMenu.printGraveYard(battle);
                 }
+                firsTime = false;
             } else {
                 break;
             }

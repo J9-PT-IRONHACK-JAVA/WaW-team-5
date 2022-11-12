@@ -126,6 +126,11 @@ public abstract class Character {
         this.hp = hp;
     }
     public void setHp() {}
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
     public String toString() {
         return "Character{" + "Id=" + getId() + ", Name=" + getName() + ", Hp=" + getHp() + "}";
     }

@@ -2,6 +2,7 @@ package com.ironhack.wawgame.gameServices;
 
 import com.ironhack.wawgame.gameMenus.BattleMenu;
 import com.ironhack.wawgame.gameMenus.DuelMenu;
+import com.ironhack.wawgame.gameMenus.PartyMenu;
 import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
 import com.ironhack.wawgame.gameObjects.Party;
@@ -32,8 +33,8 @@ public class Battle {
     public Object nextDuel() {
 
         //Defino los combatientes del duelo
-        var combatant1 = pickCombatant(party1);
-        var combatant2 = pickCombatant(party2);
+        var combatant1 = party1.pickCombatant();
+        var combatant2 = party2.pickCombatant();
 
         //Creo el duelo entre ambos combatientes para que luchen
         Duel duel = new Duel(combatant1, combatant2);
@@ -88,20 +89,7 @@ public class Battle {
      * @param party, es la party del jugador
      * @return, devuelve el Character que el jugador ha elegido.
      */
-    public Character pickCombatant(Party party) {
-        var charactersOfParty = party.getParty();
-        var scanner = new Scanner(System.in);
 
-        BattleMenu.printCharactersAlive(party.getPlayerName(), party.getPartyName(), charactersOfParty);
-        int iDCharacter1 = scanner.nextInt();
-
-        while (!party.characterIsInParty(iDCharacter1)) {
-            BattleMenu.printWrongIdSelected();
-            iDCharacter1 = scanner.nextInt();
-        }
-        // combatiente1 =  party1.chooseCharacter("1"); //comprobar si está vivo, si está devolver el character
-        return party.getCharacterById(iDCharacter1);
-    }
 
 
     //GETTERS & SETTERS

@@ -68,6 +68,10 @@ public class Rogue extends Character implements Attacker {
 
     @Override
     public String toString() {
-        return "Rogue {Id=%s, Name=%s, Hp=%s, Agility=%s, Rage=%s}".formatted(getId(), getName(), getHp(), getAgility(), getRage());
+        String weapon = "empty";
+        if (getWeapon() != null){
+            weapon = getWeapon().toString();
+        }
+        return "Rogue {Id=%s, Name=%s, Hp=%s, Agility=%s, Rage=%s, Weapon=%s}".formatted(getId(), getName(), getHp(), getAgility(), getRage(), weapon);
     }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class PartyMenu {
     public static void printParty (String playerName, String partyName, ArrayList<Character> party) {
         System.out.println("\nPLAYER " + playerName +":");
-        System.out.println("Choose id of Warrior or Wizard to duel: "); //Elegirlo por iD
+        System.out.println("Choose your champion: "); //Elegirlo por iD
         System.out.println("PARTY " + partyName + " alive combatants");
         System.out.println("********************************");
         //Imprimir Wizards de la party
