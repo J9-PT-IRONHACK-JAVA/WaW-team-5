@@ -1,75 +1,54 @@
-//Nuevo test GitHub pablo --> Develop
 package com.ironhack.wawgame.gameObjects;
 
-import com.ironhack.wawgame.gameMenus.CharactersMenu;
-
-import java.util.Random;
-
 public class Wizard extends Character implements Attacker {
-    // ATTRIBUTES
     private int intelligence;
     private int mana;
-    private static int manaNeededFireball = 5;
-    private static int manaWonStaffAttack = 1;
 
-    // CONSTRUCTOR
+    private static int manaDamageHeavyAttack = 5;
+    private static int manaDamageWeakAttack = 1;
+
+    //Constructor
     public Wizard(Integer id, String name) {
-        super(id, name, CharacterType.WIZARD);
+        super(id, name);
         setIntelligence();
         setMana();
     }
 
-    // METHODS
-    public int doAttack() {
-        int damage;
-        Random rand = new Random();
-        if (rand.nextInt(this.mana, 100) > 95 ) {
-            CharactersMenu.printWizardSuperAttack(this.getName());
-            damage = getIntelligence()*3;
-        }
-        if (this.mana >= manaNeededFireball) {
-            this.mana -= manaNeededFireball;
-            damage = getIntelligence();
-        } else {
-            this.mana += manaWonStaffAttack;
-            damage = 2;
-        }
-        return super.doAttack(damage);
-    }
-
-    @Override
-    public void receiveAttack(int damage) {
-        super.receiveDamage(damage);
-    }
-
-    // GETTERS & SETTERS
     public int getIntelligence() {
         return intelligence;
     }
 
-    private void setIntelligence() {
-        this.intelligence = new Random().nextInt(WIZARD_MIN_INTELLIGENCE, WIZARD_MAX_INTELLIGENCE);
-    }
-
-    private void setMana() {
-        this.mana = new Random().nextInt(WIZARD_MIN_MANA, WIZARD_MAX_MANA);
-    }
-
-    @Override
-    public void setHp() {
-        super.setHp(new Random().nextInt(WIZARD_MIN_HP, WIZARD_MAX_HP));
+    public void setIntelligence() {
+        int intelligence=(int)(Math.random()*50+1);
+        this.intelligence = intelligence;
     }
 
     public int getMana() {
         return mana;
     }
 
+    public void setMana() {
+        int mana=(int)(Math.random()*41+10);
+        this.mana = mana;
+    }
+
     @Override
-    public String toString() {
-        String weapon = "empty";
-        if (getWeapon() != null){
-            weapon = getWeapon().toString();
+    public void setHp() {
+        this.hp = (int) (Math.random() * 51 + 50);
+    }
+
+    public int doAttack() {
+        if (this.mana >= manaDamageHeavyAttack) {
+            this.mana -= manaDamageHeavyAttack;
+            return manaDamageHeavyAttack;
+        } else {
+            this.mana -= manaDamageWeakAttack;
+            return manaDamageWeakAttack;
         }
-        return "Wizard {Id=%s, Name=%s, Hp=%s, Intelligence=%s, Mana=%s, Weapon=%s}".formatted( getId(), getName(),getHp(), getIntelligence(), getMana(), weapon);
+    }
+
+    @Override
+    public void receiveAttack(int damage) {
+        super.receiveDamage(damage);
     }
 }
