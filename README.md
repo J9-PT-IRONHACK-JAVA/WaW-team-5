@@ -58,7 +58,6 @@ The game starts. The user has to answer some questions before the battle begins:
 If the menu does not display, check the following:
 
   - Is the CSV file in the right format?
-  - You should answer in a lowercase string.
 
 ## Maintainers
 
