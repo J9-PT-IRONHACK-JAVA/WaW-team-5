@@ -2,8 +2,6 @@ package com.ironhack.wawgame.gameObjects;
 
 import com.ironhack.wawgame.gameMenus.CharactersMenu;
 
-import java.util.Random;
-
 public class TheChosenOne extends Character implements Attacker {
     private int strength;
     private boolean isTheChosenOne;
@@ -36,7 +34,7 @@ public class TheChosenOne extends Character implements Attacker {
     }
 
     private void theAwakening() {
-        if ((Math.random() * 100) >= 90) {
+        if ((Math.random() * 100) >= 40) {
             CharactersMenu.printChosenOneAwakening(this.getName());
             CharactersMenu.printTheChosenOneAwakened();
             setHp(CHOSEN_ONE_AWAKENED_HP);
@@ -62,6 +60,10 @@ public class TheChosenOne extends Character implements Attacker {
             return "yes, I am";
         }
         return "maybe";
+    }
+
+    public boolean getIsTheChosenOne() {
+        return isTheChosenOne;
     }
 
     @Override

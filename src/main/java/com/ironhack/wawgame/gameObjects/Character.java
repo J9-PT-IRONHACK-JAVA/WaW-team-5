@@ -45,7 +45,7 @@ public abstract class Character {
     protected final int ROGUE_MIN_RAGE = 10;
 
     // CHOSEN ONE STATS
-    protected final int CHOSEN_ONE_AWAKENED_HP = 350;
+    public static final int CHOSEN_ONE_AWAKENED_HP = 350;
     protected final int CHOSEN_ONE_NORMAL_HP = 50;
     protected final int CHOSEN_ONE_AWAKENED_STRENGTH = 65;
     protected final int CHOSEN_ONE_NORMAL_STRENGTH = 2;

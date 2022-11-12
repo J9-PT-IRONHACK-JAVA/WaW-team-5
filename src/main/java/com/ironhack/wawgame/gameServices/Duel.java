@@ -5,6 +5,7 @@ import com.ironhack.wawgame.gameMenus.DuelMenu;
 import com.ironhack.wawgame.gameMenus.Writer;
 import com.ironhack.wawgame.gameObjects.Attacker;
 import com.ironhack.wawgame.gameObjects.Character;
+import com.ironhack.wawgame.gameObjects.TheChosenOne;
 
 
 public class Duel {
@@ -32,6 +33,19 @@ public class Duel {
         DuelMenu.attackLog(attacker1, attacker2);
         int counter = 0;
         while (attacker1.getIsAlive() && attacker2.getIsAlive()) {
+            if (((Character) attacker1).getCharacterType().equals(Character.CharacterType.CHOSEN_ONE)){
+                if (((TheChosenOne) attacker1).getIsTheChosenOne()) {
+                    this.hpCombatant1 = Character.CHOSEN_ONE_AWAKENED_HP;
+                }
+            }
+            if (((Character) attacker2).getCharacterType().equals(Character.CharacterType.CHOSEN_ONE)){
+                if (((TheChosenOne) attacker1).getIsTheChosenOne()) {
+                    this.hpCombatant2 = Character.CHOSEN_ONE_AWAKENED_HP;
+                }
+            }
+            if (((Character) attacker2).getCharacterType().equals(Character.CharacterType.CHOSEN_ONE)){
+
+            }
             counter++;
             Writer.printLifeBars(this.hpCombatant1,((Character) attacker1).getHp(), this.hpCombatant2,((Character) attacker2).getHp());
             try{Thread.sleep(400);}catch (Exception e){}
