@@ -8,6 +8,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BattleMenu {
+    public static final String BLACK = "\u001B[30m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String BLUE = "\u001B[34m";
+    public static final String PURPLE = "\u001B[35m";
+    public static final String CYAN = "\u001B[36m";
+    public static final String WHITE = "\u001B[37m";
+    public static final String RESET = "\u001B[0m";
 
     //Comienzo de la batalla
     public static void battleBegins () {
@@ -100,9 +109,11 @@ public class BattleMenu {
     //Mensaje informando cuando la batalla ha terminado
     public static void printBattleIsFinished () {
         Writer.printStringLineByLine("""
+        -------------------------------------------------------------------------
         ░█▀▀█ ─█▀▀█ ▀▀█▀▀ ▀▀█▀▀ ░█─── ░█▀▀▀ █ ░█▀▀▀█ 　 ░█▀▀▀█ ░█──░█ ░█▀▀▀ ░█▀▀█
         ░█▀▀▄ ░█▄▄█ ─░█── ─░█── ░█─── ░█▀▀▀ ─ ─▀▀▀▄▄ 　 ░█──░█ ─░█░█─ ░█▀▀▀ ░█▄▄▀
         ░█▄▄█ ░█─░█ ─░█── ─░█── ░█▄▄█ ░█▄▄▄ ─ ░█▄▄▄█ 　 ░█▄▄▄█ ──▀▄▀─ ░█▄▄▄ ░█─░█
+        -------------------------------------------------------------------------
         \n
         """,300);
     }
@@ -122,6 +133,13 @@ public class BattleMenu {
                 return "...... otras cosas";
         }
     }
+    public static void printBattleWinner (Battle battle) {
+        System.out.print("\n\n🏆🏆🏆🏆🏆" + GREEN + "\n WINNER IS  ");
+        String winner = battle.getBattleWinner();
+        System.out.println(YELLOW + winner + RESET);
+    }
+
+
 
 
 }//class ends

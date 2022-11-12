@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class Writer {
 
-    public static final int LOG_SPEED = 20;
+    public static final int LOG_SPEED = 2;
     public static void printFileLineByLine(String path, int speed) throws FileNotFoundException, InterruptedException {
         File partyFile = new File(path);
         Scanner reader = new Scanner(partyFile);
