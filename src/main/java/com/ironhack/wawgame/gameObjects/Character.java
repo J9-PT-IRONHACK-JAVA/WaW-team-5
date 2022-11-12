@@ -1,5 +1,6 @@
 package com.ironhack.wawgame.gameObjects;
 
+//clase character con un id, name, hp. Con un booleano para saber si está vivo y un ataque fuerte o débil.
 public abstract class Character {
     private Integer id;
     private String name;
@@ -17,7 +18,7 @@ public abstract class Character {
         this.isAlive = true;
     }
 
-
+//recibe daño
     public void receiveDamage (int damage){
         if (this.hp > damage) {
             this.hp -= damage;

@@ -2,6 +2,7 @@ package com.ironhack.wawgame.gameObjects;
 
 import java.util.Random;
 
+//clase enemigo
 public class Monster extends Character implements Attacker{
     private int strength;
 
@@ -10,24 +11,27 @@ public class Monster extends Character implements Attacker{
         setStrength();
     }
 
-
+//fuerza del enemigo
     public void setStrength() {
         this.strength = new Random().nextInt(MONSTER_MIN_STRENGTH, MONSTER_MAX_STRENGTH);
     }
 
+//vida del enemigo
     @Override
     public void setHp() {
         super.setHp(new Random().nextInt(MONSTER_MIN_HP, MONSTER_MAX_HP));
     }
-
+//ataque que hace el enemigo
     public int doAttack() {
         return super.doAttack(strength);
     }
+//ataque que recibe el enemigo del jugador
     @Override
     public void receiveAttack(int damage) {
         super.receiveDamage(damage);
     }
 
+//armas que puede escoger el enemigo
     public Weapon dropWeapon() {
         double weaponRarityProb = (double)(this.strength + this.getHp())/(double) (MONSTER_MAX_STRENGTH + MONSTER_MAX_HP)* Math.random()*0.75;
         CharacterType type;
