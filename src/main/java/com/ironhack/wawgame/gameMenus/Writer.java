@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class Writer {
 
-    public static final int LOG_SPEED = 2;
+    public static final int LOG_SPEED = 10;
     public static void printFileLineByLine(String path, int speed) throws FileNotFoundException, InterruptedException {
         File partyFile = new File(path);
         Scanner reader = new Scanner(partyFile);
@@ -27,7 +27,7 @@ public class Writer {
     }
 
     public static void printStringCharByCharHorizontally(String sentence, int speed) {
-
+        System.out.println("\n");
         var charArray = sentence.split("");
         String output = "";
         for(String c:charArray) {
@@ -39,7 +39,7 @@ public class Writer {
 
     public static void cleanConsole() {
         System.out.print("\u001B[0m");
-        System.out.print("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+        System.out.print("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
     }
 
     public static void printLifeBars(int hp1, int remainingHp1, int hp2, int remainingHp2) {

@@ -24,7 +24,7 @@ public class MainMenu {
         ░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░╚═════╝░  ╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░  ░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░╚════╝░╚═╝░░╚═╝░╚═════╝░
         \n
         """;
-        Writer.printStringLineByLine(welcomeMessage,1000);
+        Writer.printStringLineByLine(welcomeMessage,400);
     }
 
     public static String askForGameAndGetResponseFromUser() {
